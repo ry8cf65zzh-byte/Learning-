@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Unit 1 Reception · 商务接待口语互动课堂</title>
+<style>
+:root{
+  --bg:#F7F5EF; --card:#fff; --ink:#1F3A5F; --muted:#6B7A8F;
+  --teal:#0F6F5C; --teal-soft:#E6F2EE; --navy:#1F3A5F; --amber:#D97706; --amber-soft:#FDF3E3;
+  --line:#E7E2D8; --ok:#2E9E6B; --err:#C9503F; --red:#D93025; --red-soft:#FFF5F3; --red-line:#F3CFCA;
+  --r:18px; --sh:0 10px 30px rgba(31,58,95,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;line-height:1.75;font-size:17px}
+.en{font-family:Georgia,"Times New Roman",serif}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* ---- 顶栏 ---- */
+.topbar{position:sticky;top:0;z-index:60;background:rgba(247,245,239,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:16px;height:64px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;color:var(--teal);font-size:17.5px}
+.logo .dot{width:11px;height:11px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 4px rgba(217,119,6,.18)}
+nav.menu{display:flex;gap:4px;flex-wrap:wrap}
+nav.menu a{padding:6px 12px;border-radius:999px;font-size:15px;color:var(--muted);transition:.25s;white-space:nowrap}
+nav.menu a:hover{background:var(--teal-soft);color:var(--teal)}
+nav.menu a.active{background:var(--teal);color:#fff;font-weight:600}
+.pw{margin-left:auto;display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--muted)}
+.bar{width:120px;height:7px;border-radius:99px;background:#E3DED3;overflow:hidden}
+.bar>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));transition:width .5s}
+.pbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.2s;white-space:nowrap}
+.pbtn:hover{border-color:var(--teal);color:var(--teal)}
+.pbtn.danger{border-color:var(--err);color:var(--err)}
+.pbtn.danger:hover{background:#FBECEA}
+.pbtn.armed{background:var(--err);color:#fff;border-color:var(--err)}
+#scrollBar{position:fixed;top:64px;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--amber));z-index:70}
+
+/* ---- Hero ---- */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0F6F5C,#123A52 58%,#1F3A5F);color:#fff;padding:66px 0 84px}
+.hero .wrap{display:flex;align-items:center;gap:36px;flex-wrap:wrap}
+.hero-txt{flex:1 1 450px;min-width:300px}
+.tagline{display:inline-block;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.26);padding:5px 14px;border-radius:99px;font-size:14px;letter-spacing:1px}
+.hero h1{font-size:56px;line-height:1.1;margin:14px 0 6px;font-weight:800}
+.hero h1 span{color:#FFD9A0}
+.hero p.sub{font-size:19px;color:#D6E4E0;max-width:540px}
+.hero-btns{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.btn{border:none;cursor:pointer;font-family:inherit;font-size:16.5px;font-weight:600;padding:13px 26px;border-radius:999px;transition:.25s}
+.btn-primary{background:var(--amber);color:#fff;box-shadow:0 8px 20px rgba(217,119,6,.35)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{background:rgba(255,255,255,.2)}
+.hero-art{flex:0 1 400px;min-width:280px}
+@keyframes fly{0%{transform:translate(0,0)}45%{transform:translate(230px,-34px)}46%{transform:translate(230px,-34px) scaleX(-1)}100%{transform:translate(0,0)}}
+.plane{animation:fly 10s linear infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.bob{animation:bob 4s ease-in-out infinite}
+
+/* ---- 通用 ---- */
+section{padding:64px 0 8px}
+.sec-head{display:flex;align-items:flex-end;gap:15px;margin-bottom:26px;flex-wrap:wrap}
+.sec-num{font-family:Georgia,serif;font-size:48px;font-weight:700;color:var(--amber);line-height:1}
+.sec-head h2{font-size:33px;color:var(--navy)}
+.sec-head p{color:var(--muted);font-size:16.5px}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+.grid2{display:grid;grid-template-columns:1.05fr .95fr;gap:22px}
+.grid2.rev{grid-template-columns:.95fr 1.05fr}
+@media(max-width:940px){.grid2,.grid2.rev{grid-template-columns:1fr}}
+.panel{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:22px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px;font-size:15px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.2s}
+.chip:hover{border-color:var(--teal);color:var(--teal)}
+.chip.on{background:var(--teal);color:#fff;border-color:var(--teal)}
+
+/* ---- Lead-in ---- */
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+@media(max-width:940px){.lead-grid{grid-template-columns:1fr}}
+.lead-stage{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:18px;position:relative;overflow:hidden}
+.lead-stage svg{width:100%;height:auto;display:block}
+@keyframes riseIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes popIn{0%{opacity:0;transform:scale(.6)}70%{transform:scale(1.08)}100%{opacity:1;transform:scale(1)}}
+@keyframes rollIn{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:translateX(0)}}
+@keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+.a1{animation:riseIn .8s .2s both} .a2{animation:fadeIn .9s 1.1s both}
+.a3{animation:rollIn 1s 1.6s both} .a4{animation:popIn .5s 2.2s both}
+.a5{animation:popIn .5s 2.6s both} .a6{animation:blink 2s 3.2s infinite}
+.think{display:flex;flex-direction:column;gap:12px}
+.qcard{background:#fff;border-radius:14px;box-shadow:var(--sh);padding:16px 19px;cursor:pointer;border-left:5px solid var(--teal);transition:.25s}
+.qcard:hover{transform:translateX(4px)}
+.qcard h4{font-size:18px;color:var(--navy)}
+.qcard .tip{font-size:15.5px;color:var(--muted);margin-top:8px;display:none;border-top:1px dashed var(--line);padding-top:8px;line-height:1.6}
+.qcard.open .tip{display:block}
+.qcard .tag{font-size:13px;color:var(--amber);font-weight:700;letter-spacing:1px}
+.cloud{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.kw{padding:9px 16px;border-radius:999px;background:#fff;border:1.5px solid var(--line);cursor:pointer;font-family:Georgia,serif;font-size:17.5px;transition:.25s}
+.kw:hover{border-color:var(--teal);background:var(--teal-soft)}
+.kw.hit{background:var(--teal);color:#fff;border-color:var(--teal)}
+.kw small{font-family:inherit;font-size:13.5px;margin-left:6px;opacity:.75}
+
+/* ---- 目标 ---- */
+.goal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:940px){.goal-grid{grid-template-columns:1fr}}
+.goal{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:24px;border-top:5px solid var(--teal);transition:.3s}
+.goal:hover{transform:translateY(-5px)}
+.goal.b{border-top-color:var(--amber)} .goal.c{border-top-color:var(--navy)}
+.goal .ic{font-size:28px}
+.goal h3{font-size:21px;margin-top:8px}
+.goal ul{padding-left:19px;margin-top:10px;font-size:16px;color:var(--muted)}
+.goal li{margin:6px 0}
+
+/* ---- 旅程地图 ---- */
+.map{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:18px}
+.map svg{width:100%;height:auto}
+.stop{cursor:pointer}
+.stop:hover circle.st{cursor:pointer}
+.stop circle.st{transition:.25s}
+.stop text{font-family:"Microsoft YaHei",sans-serif}
+
+/* ---- 站点头 ---- */
+.st-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.st-badge{width:48px;height:48px;border-radius:13px;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:700;font-size:20px}
+.st-head h3{font-size:25px;color:var(--navy)}
+.st-head .sc{font-size:15.5px;color:var(--muted);margin-top:2px}
+
+/* ---- 三步步骤条 ---- */
+.stepbar{display:flex;gap:10px;margin:0 0 20px;flex-wrap:wrap}
+.stepbar .stp{display:flex;align-items:center;gap:9px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:10px 19px;font-size:16px;color:var(--muted);cursor:pointer;font-family:inherit;transition:.25s}
+.stepbar .stp i{width:26px;height:26px;border-radius:50%;background:#EDE8DE;color:var(--muted);display:grid;place-items:center;font-size:14px;font-weight:700;font-style:normal;transition:.25s}
+.stepbar .stp.on{border-color:var(--teal);color:var(--teal);background:var(--teal-soft);font-weight:600}
+.stepbar .stp.on i{background:var(--teal);color:#fff}
+
+/* ---- 步骤面板 ---- */
+.stepblk{padding:26px}
+.step-tag{display:inline-block;background:var(--navy);color:#fff;font-size:14px;letter-spacing:1.5px;padding:6px 15px;border-radius:99px;margin-bottom:20px;font-weight:600}
+.stepblk+.stepblk{margin-top:20px}
+
+/* ---- 词汇 / 句型讲解（红色重点） ---- */
+.learn-grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:22px}
+@media(max-width:940px){.learn-grid{grid-template-columns:1fr}}
+.learn-col h4{font-size:19px;color:var(--navy);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.vrow{display:grid;grid-template-columns:auto 1fr;gap:3px 13px;padding:14px 16px;background:var(--red-soft);border:1.5px solid var(--red-line);border-radius:14px;margin-bottom:12px;align-items:center}
+.vplay{width:40px;height:40px;border-radius:50%;border:none;background:var(--teal);color:#fff;font-size:16px;cursor:pointer;grid-row:span 3;transition:.2s}
+.vplay:hover{transform:scale(1.08)}
+.vword{font-family:Georgia,serif;font-size:22px;color:var(--red);font-weight:700}
+.vph{font-size:14.5px;color:var(--muted);font-family:Georgia,serif}
+.vzh{font-size:16px;color:var(--ink);font-weight:600}
+.vex{grid-column:2;font-size:15px;color:var(--muted);font-family:Georgia,serif}
+.prow{background:var(--red-soft);border:1.5px solid var(--red-line);border-radius:14px;padding:16px;margin-bottom:12px}
+.pen{font-family:Georgia,serif;font-size:19.5px;color:var(--navy);line-height:1.6}
+.pen b{color:var(--red);font-weight:700}
+.pzh{font-size:15.5px;color:var(--muted);margin-top:7px}
+.pnote{font-size:15px;color:#8A5A16;background:var(--amber-soft);border-radius:10px;padding:9px 13px;margin-top:10px;line-height:1.6}
+.prow-btns{display:flex;gap:8px;margin-top:11px;flex-wrap:wrap}
+.next-step{margin-top:20px;border:none;background:linear-gradient(135deg,var(--teal),var(--navy));color:#fff;font-family:inherit;font-size:16px;font-weight:600;padding:13px 26px;border-radius:999px;cursor:pointer;transition:.25s}
+.next-step:hover{transform:translateX(4px)}
+
+/* ---- 对话 ---- */
+.ctrl{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#0F6F5C,#1F3A5F);border-radius:12px;padding:12px 15px;color:#fff;margin-bottom:16px;flex-wrap:wrap}
+.ctrl .pb{width:44px;height:44px;border-radius:50%;border:none;background:#fff;color:var(--teal);font-size:17px;cursor:pointer;display:grid;place-items:center;flex:0 0 44px}
+.ctrl .lb{font-size:15.5px;flex:1;min-width:130px}
+.ctrl .mb{border:none;background:rgba(255,255,255,.18);color:#fff;border-radius:8px;padding:7px 11px;font-size:13.5px;cursor:pointer;font-family:inherit}
+.ctrl .mb:hover{background:rgba(255,255,255,.3)}
+.chat{max-height:420px;overflow:auto;padding-right:6px;display:flex;flex-direction:column;gap:11px}
+.chat::-webkit-scrollbar{width:7px}
+.chat::-webkit-scrollbar-thumb{background:#DCD6C8;border-radius:9px}
+.bub{max-width:88%;padding:12px 16px;border-radius:15px;cursor:pointer;border:1.5px solid transparent;transition:.2s;position:relative}
+.bub:hover{border-color:var(--teal)}
+.bub .who{font-size:13.5px;font-weight:700;margin-bottom:3px;display:flex;gap:6px;align-items:center}
+.bub .who .g{font-size:12px;padding:1px 7px;border-radius:99px;background:rgba(0,0,0,.08);font-weight:600}
+.bub .ln{font-size:19.5px;line-height:1.55}
+.bub .zh{font-size:16px;color:var(--muted);margin-top:6px;display:none}
+.bub.show-zh .zh{display:block}
+.bub .say{position:absolute;right:10px;bottom:6px;font-size:12px;color:var(--teal);opacity:0}
+.bub:hover .say{opacity:1}
+/* 头像（说话人图片） */
+.bub .av{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:0 0 46px;border:2.5px solid #fff;box-shadow:0 3px 10px rgba(31,58,95,.22);background:#E7E2D8}
+.bub .body{flex:1;min-width:0}
+.L,.R{display:flex;gap:11px;align-items:flex-start}
+.L{background:#F3F7F6;border-bottom-left-radius:4px}
+.R{align-self:flex-end;flex-direction:row-reverse;background:var(--teal-soft);border-bottom-right-radius:4px}
+.R .who{flex-direction:row-reverse}
+.N{align-self:center;max-width:100%;background:var(--amber-soft);color:#8A5A16;font-size:15px;text-align:center;border-radius:9px;padding:8px 14px;cursor:default}
+.bub.playing{box-shadow:0 0 0 3px rgba(217,119,6,.4);border-color:var(--amber)}
+.bub.playing .av{border-color:var(--amber)}
+.focus{background:#fff;border-radius:14px;box-shadow:var(--sh);padding:16px;margin-bottom:12px}
+.focus h4{font-size:17px;color:var(--teal);margin-bottom:8px}
+.focus .en{font-size:19px;color:var(--navy);display:block;line-height:1.5}
+.focus .zh{font-size:15px;color:var(--muted);display:block;margin-top:3px}
+.focus .row{display:flex;gap:8px;margin-top:8px}
+.mini{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;font-size:14.5px;cursor:pointer;font-family:inherit;color:var(--muted)}
+.mini:hover{border-color:var(--teal);color:var(--teal)}
+.task{background:#FBFFFE;border:2px dashed var(--teal);border-radius:14px;padding:16px;margin-top:12px}
+.task h4{font-size:17px;color:var(--teal)}
+.task p{font-size:15.5px;color:var(--muted);margin-top:6px}
+.form-row{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.form-row input{padding:11px 13px;border:1px solid var(--line);border-radius:10px;font-family:inherit;font-size:16px;color:var(--ink)}
+.dish{display:flex;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:14px;padding:13px;cursor:pointer;transition:.25s;background:#fff;margin-top:10px}
+.dish:hover{border-color:var(--teal);transform:translateX(3px)}
+.dish.on{border-color:var(--amber);background:var(--amber-soft)}
+.dish .em{font-size:28px}
+.dish .nm{font-size:16.5px;font-weight:600}
+.dish .eg{font-size:14.5px;color:var(--muted);font-family:Georgia,serif}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:760px){.cmp{grid-template-columns:1fr}}
+.cmp>div{border-radius:14px;padding:15px}
+.cmp .bad{background:#FBECEA;border:1px solid #EFD3CE}
+.cmp .good{background:#E8F6EF;border:1px solid #C9E7D8}
+.cmp .lb{font-size:14px;font-weight:700;margin-bottom:6px}
+.cmp .en{font-size:18px;display:block}
+.out-sent{background:var(--teal-soft);border-radius:12px;padding:15px;margin-top:10px;font-family:Georgia,serif;font-size:19px;color:var(--navy);min-height:56px;display:flex;align-items:center}
+
+/* ---- 关系图 ---- */
+.rel-svg{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:14px}
+.rel-svg svg{width:100%;height:auto}
+.node{cursor:pointer}
+.node:hover rect{stroke-width:3.5}
+.flow{stroke-dasharray:6 6;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-24}}
+.rel-info{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:20px}
+.say3{margin-top:14px;background:var(--amber-soft);border-left:4px solid var(--amber);border-radius:10px;padding:14px}
+.say3 .en{font-size:17px;color:var(--navy);display:block;margin-top:5px}
+details.full{margin-top:12px;background:#fff;border-radius:12px;padding:12px 14px;box-shadow:var(--sh)}
+details.full summary{cursor:pointer;font-size:16px;color:var(--teal);font-weight:600}
+
+/* ---- Exercise Two 提问 ---- */
+.qrow{display:flex;gap:14px;padding:17px;background:#FBFFFE;border:1.5px solid var(--line);border-radius:14px;margin-bottom:14px}
+.qrow.rec-done{border-color:var(--ok);background:#F7FCFA}
+.qnum{flex:0 0 38px;height:38px;border-radius:11px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:700;font-size:17px}
+.qbody{flex:1;min-width:0}
+.qtext{font-family:Georgia,serif;font-size:19px;color:var(--navy);line-height:1.5}
+.qzh{font-size:15.5px;color:var(--muted);margin-top:5px}
+.qacts{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.qacts button{border-radius:999px;padding:9px 16px;font-size:15px;cursor:pointer;font-family:inherit;font-weight:600;transition:.2s;border:1.5px solid var(--line);background:#fff;color:var(--muted)}
+.qacts button:hover{border-color:var(--teal);color:var(--teal)}
+.rec-btn{border:1.5px solid var(--err)!important;background:#fff!important;color:var(--err)!important}
+.rec-btn:hover{background:#FBECEA!important}
+.rec-btn.rec-on{background:var(--err)!important;color:#fff!important;border-color:var(--err)!important;animation:pulse 1.2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,80,63,.45)}50%{box-shadow:0 0 0 9px rgba(201,80,63,0)}}
+.rec-play{display:none;border:1.5px solid var(--ok)!important;color:#1E6B47!important}
+.qrow.rec-done .rec-play{display:inline-block}
+.qans{display:none;margin-top:12px;background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:10px;padding:12px 15px;font-size:15.5px;color:var(--navy);line-height:1.65}
+.qans.show{display:block}
+
+/* ---- 句型 / 词汇 ---- */
+.pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:15px}
+.pat{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:19px;position:relative;transition:.3s}
+.pat:hover{transform:translateY(-4px)}
+.pat .badge{position:absolute;right:-28px;top:12px;background:var(--teal-soft);color:var(--teal);font-size:12.5px;padding:3px 34px;transform:rotate(35deg);font-weight:700}
+.pat .en-s{font-size:20.5px;color:var(--navy);line-height:1.5}
+.pat .en-s b{color:var(--red)}
+.pat .zh-s{font-size:15.5px;color:var(--muted);margin-top:7px}
+.builder{background:linear-gradient(135deg,#1F3A5F,#0F6F5C);border-radius:var(--r);padding:24px;color:#fff;margin-top:20px}
+.builder select{padding:11px 12px;border-radius:10px;border:none;font-family:inherit;font-size:15.5px;color:var(--navy);flex:1 1 160px}
+.word-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:13px}
+.flip{perspective:1000px;height:140px;cursor:pointer}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.on .flip-in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:11px;text-align:center;box-shadow:var(--sh)}
+.face.front{background:#fff}
+.face.front .w{font-family:Georgia,serif;font-size:23px;font-weight:700;color:var(--red)}
+.face.front .hint{font-size:12.5px;color:var(--muted);margin-top:6px}
+.face.back{background:var(--teal);color:#fff;transform:rotateY(180deg)}
+.face.back .zz{font-size:16px;font-weight:600}
+.face.back .ex{font-size:13.5px;color:#D9EFE9;margin-top:6px;font-family:Georgia,serif}
+
+/* ---- 挑战 / 测验 / 作业 ---- */
+.timer{font-family:Georgia,serif;font-size:56px;font-weight:700;color:var(--navy);text-align:center}
+.timer.run{color:var(--amber)}
+.scenario{background:linear-gradient(135deg,#fff,#F3F7F6);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:12px}
+.lvl{background:#fff;border-radius:14px;padding:16px;box-shadow:var(--sh);border-left:5px solid var(--teal);margin-bottom:11px}
+.lvl.b{border-left-color:var(--amber)} .lvl.c{border-left-color:var(--navy)}
+.lvl h4{font-size:17px}
+.lvl p{font-size:15.5px;color:var(--muted);margin-top:5px}
+.stars{display:flex;gap:7px;justify-content:center;margin-top:12px}
+.star{font-size:34px;color:#DCD6C8;cursor:pointer;background:none;border:none;transition:.2s}
+.star.on{color:var(--amber);transform:scale(1.15)}
+.quiz{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:24px}
+.opt{border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;cursor:pointer;font-size:16.5px;background:#fff;font-family:inherit;text-align:left;color:var(--ink);transition:.2s}
+.opt:hover{border-color:var(--teal)}
+.opt.right{background:#E8F6EF;border-color:var(--ok);color:#1E6B47;font-weight:600}
+.opt.wrong{background:#FBECEA;border-color:var(--err);color:#9C3A2C}
+.fb{font-size:15px;margin-top:8px;color:var(--muted);display:none;line-height:1.6}
+.fb.show{display:block}
+.score-box{text-align:center;padding:16px;background:var(--teal-soft);border-radius:14px;margin-top:6px}
+.score-box .n{font-family:Georgia,serif;font-size:52px;font-weight:700;color:var(--teal)}
+.hw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}
+.hw{background:#fff;border-radius:var(--r);box-shadow:var(--sh);padding:20px;border-top:5px solid var(--teal)}
+.hw.b{border-top-color:var(--amber)} .hw.c{border-top-color:var(--navy)}
+.hw .lv{font-size:13px;color:#fff;background:var(--teal);border-radius:99px;padding:3px 11px;display:inline-block;margin-bottom:7px}
+.hw.b .lv{background:var(--amber)} .hw.c .lv{background:var(--navy)}
+.hw h4{font-size:17.5px}
+.hw p{font-size:15.5px;color:var(--muted);margin-top:6px}
+.res{display:flex;align-items:center;gap:13px;background:#fff;border-radius:14px;padding:14px 16px;box-shadow:var(--sh);margin-top:12px}
+.res .ico{width:44px;height:44px;border-radius:12px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font-size:20px;flex:0 0 44px}
+
+/* ---- Role-Play 填空 ---- */
+.rp-tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.rp-tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:11px 20px;font-size:16px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.25s;font-weight:600}
+.rp-tab:hover{border-color:var(--teal);color:var(--teal)}
+.rp-tab.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.rp-scene{background:linear-gradient(135deg,#fff,#F3F7F6);border:1px solid var(--line);border-radius:14px;padding:16px 19px;margin-bottom:16px}
+.rp-scene b{font-size:18px;color:var(--navy)}
+.rp-scene p{font-size:15.5px;color:var(--muted);margin-top:5px}
+.rpline{display:flex;gap:12px;padding:14px 16px;background:#fff;border:1.5px solid var(--line);border-radius:14px;margin-bottom:11px;align-items:flex-start;transition:.2s}
+.rpline:hover{border-color:var(--teal)}
+.rpline .av{width:42px;height:42px;border-radius:50%;object-fit:cover;flex:0 0 42px;border:2px solid #fff;box-shadow:0 2px 8px rgba(31,58,95,.18);background:#E7E2D8}
+.rpline .body{flex:1;min-width:0}
+.rpline .who{font-size:13.5px;font-weight:700;color:var(--muted);margin-bottom:4px}
+.rpline .en{font-family:Georgia,serif;font-size:19px;color:var(--navy);line-height:1.65}
+.rpline .zh{font-size:15px;color:var(--muted);margin-top:4px}
+.rpline input{display:inline-block;width:150px;padding:5px 10px;border:none;border-bottom:2.5px dashed var(--amber);background:var(--amber-soft);border-radius:7px 7px 0 0;font-family:Georgia,serif;font-size:18px;color:var(--navy);text-align:center;margin:0 3px;vertical-align:baseline}
+.rpline input:focus{outline:none;border-bottom-color:var(--teal);background:var(--teal-soft)}
+.rpline input.ok{border-bottom-color:var(--ok);background:#E8F6EF}
+.rpline input.bad{border-bottom-color:var(--err);background:#FBECEA}
+.rpline .acts{display:flex;gap:7px;margin-top:8px;flex-wrap:wrap}
+.rpline .acts button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:13.5px;cursor:pointer;font-family:inherit;color:var(--muted);transition:.2s}
+.rpline .acts button:hover{border-color:var(--teal);color:var(--teal)}
+.rp-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.rp-result{background:var(--teal-soft);border-left:4px solid var(--teal);border-radius:10px;padding:14px 17px;margin-top:14px;font-size:15.5px;color:var(--navy);line-height:1.7;display:none}
+.rp-result.show{display:block}
+
+footer{margin-top:56px;background:var(--navy);color:#B9C8D6;padding:26px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(18px);background:var(--navy);color:#fff;padding:12px 22px;border-radius:999px;font-size:15px;opacity:0;transition:.3s;z-index:99;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div id="scrollBar"></div>
+<div class="topbar">
+  <div class="wrap">
+    <div class="logo"><span class="dot"></span>Unit 1 · Reception</div>
+    <nav class="menu">
+      <a href="#home" class="active">开始</a>
+      <a href="#leadin">情境导入</a>
+      <a href="#goals">本课目标</a>
+      <a href="#map">接待旅程</a>
+      <a href="#s1">五站情景</a>
+      <a href="#patterns">句型词汇</a>
+      <a href="#challenge">开口挑战</a>
+      <a href="#quiz">闯关自测</a>
+      <a href="#homework">作业音频</a>
+    </nav>
+    <div class="pw"><span>进度</span><div class="bar"><i id="pbar"></i></div><span id="ptxt">0%</span>
+      <button class="pbtn" id="btnSave" title="把当前学习进度保存到本机">💾 保存</button>
+      <button class="pbtn danger" id="btnReset" title="把学习进度清零，重新开始">↺ 归零</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-txt">
+      <span class="tagline">商务英语口语 · 一年级 · 90 分钟</span>
+      <h1>Unit 1<br><span>Reception</span> 商务接待</h1>
+      <p class="sub">跟着 Jennie 与 Marcus 走完一趟完整的接待旅程：机场接机 → 酒店入住 → 餐厅用餐 → 公司引荐。每一站都按「先学词句 → 再听对话 → 开口回答」三步走。</p>
+      <div class="hero-btns">
+        <button class="btn btn-primary" onclick="go('#leadin')">▶ 从情境导入开始</button>
+        <button class="btn btn-ghost" onclick="go('#s1')">直接进情景对话</button>
+      </div>
+    </div>
+    <div class="hero-art bob">
+      <svg viewBox="0 0 420 300" width="100%" height="300" preserveAspectRatio="xMidYMid meet">
+        <ellipse cx="210" cy="272" rx="176" ry="15" fill="rgba(255,255,255,.12)"/>
+        <g class="plane"><path d="M40 138 L150 84 L196 100 L186 120 L156 115 L149 130 L163 138 L155 150 L147 130 L62 156 Z" fill="#FFD9A0"/></g>
+        <circle cx="332" cy="80" r="28" fill="rgba(217,119,6,.5)"/>
+        <rect x="118" y="182" width="150" height="90" rx="13" fill="rgba(255,255,255,.14)"/>
+        <rect x="138" y="198" width="110" height="7" rx="3" fill="rgba(255,255,255,.5)"/>
+        <rect x="138" y="214" width="80" height="7" rx="3" fill="rgba(255,255,255,.32)"/>
+        <rect x="138" y="230" width="96" height="7" rx="3" fill="rgba(255,255,255,.22)"/>
+        <circle cx="94" cy="206" r="17" fill="#fff" opacity=".9"/>
+        <path d="M77 234 h34 a15 15 0 0 1 15 15 v32 h-64 v-32 a15 15 0 0 1 15 -15 z" fill="#FFD9A0"/>
+        <circle cx="298" cy="200" r="17" fill="#fff" opacity=".75"/>
+        <path d="M281 228 h34 a15 15 0 0 1 15 15 v38 h-64 v-38 a15 15 0 0 1 15 -15 z" fill="#BFDCD5"/>
+        <rect x="334" y="232" width="50" height="50" rx="9" fill="#FFD9A0"/>
+        <rect x="353" y="217" width="7" height="19" rx="3" fill="#FFD9A0"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ LEAD-IN ============ -->
+<section id="leadin" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <div><h2>情境导入 · 先想一想</h2><p>看一段小动画，带着三个问题进入今天的话题 Reception（接待）。</p></div>
+  </div>
+  <div class="lead-grid">
+    <div class="lead-stage">
+      <svg viewBox="0 0 520 330">
+        <rect x="0" y="0" width="520" height="330" rx="16" fill="#FBF9F4"/>
+        <rect x="26" y="26" width="180" height="150" rx="12" fill="#D3E3DF"/>
+        <g class="a1">
+          <circle cx="330" cy="112" r="22" fill="#1F3A5F"/>
+          <path d="M308 140 h44 a20 20 0 0 1 20 20 v92 h-84 v-92 a20 20 0 0 1 20 -20 z" fill="#0F6F5C"/>
+          <rect x="188" y="252" width="15" height="52" rx="7" fill="#1F3A5F"/>
+          <rect x="345" y="252" width="15" height="52" rx="7" fill="#1F3A5F"/>
+        </g>
+        <g class="a2">
+          <rect x="356" y="118" width="132" height="62" rx="8" fill="#fff" stroke="#D97706" stroke-width="4"/>
+          <text x="422" y="146" text-anchor="middle" font-size="14" font-family="Georgia" fill="#1F3A5F">Mr. Marcus</text>
+          <text x="422" y="166" text-anchor="middle" font-size="13" font-family="Georgia" fill="#8A5A16">Rodgers</text>
+          <rect x="418" y="180" width="8" height="34" rx="4" fill="#D97706"/>
+        </g>
+        <g class="a3">
+          <rect x="60" y="228" width="66" height="60" rx="10" fill="#D97706"/>
+          <rect x="86" y="210" width="7" height="22" rx="3" fill="#D97706"/>
+          <circle cx="76" cy="292" r="8" fill="#1F3A5F"/>
+          <circle cx="110" cy="292" r="8" fill="#1F3A5F"/>
+        </g>
+        <g class="a4">
+          <path d="M180 66 h96 a14 14 0 0 1 14 14 v34 a14 14 0 0 1 -14 14 h-58 l-20 20 v-20 h-18 a14 14 0 0 1 -14 -14 v-34 a14 14 0 0 1 14 -14 z" fill="#fff" stroke="#0F6F5C" stroke-width="2"/>
+          <text x="228" y="110" text-anchor="middle" font-size="15" font-family="Georgia" fill="#0F6F5C">Excuse me…?</text>
+        </g>
+        <g class="a5">
+          <circle cx="300" cy="60" r="18" fill="#FDF3E3" stroke="#D97706" stroke-width="2"/>
+          <text x="300" y="67" text-anchor="middle" font-size="18" font-family="Georgia" fill="#D97706">?</text>
+        </g>
+        <text x="260" y="316" text-anchor="middle" font-size="14" fill="#6B7A8F" class="a6">如果举牌的人是你，第一句话该怎么说？</text>
+      </svg>
+    </div>
+    <div>
+      <div class="think">
+        <div class="qcard" onclick="this.classList.toggle('open');mark('q1')">
+          <span class="tag">QUESTION 1</span>
+          <h4>在机场出口，你怎样确认对方身份？</h4>
+          <div class="tip">💡 不要直接问 "Are you Marcus?"，更礼貌的说法是：Excuse me, are you Marcus Rodgers from Nelson Office Outfitters?</div>
+        </div>
+        <div class="qcard" onclick="this.classList.toggle('open');mark('q2')">
+          <span class="tag">QUESTION 2</span>
+          <h4>对方专程来接你，怎样回应才得体？</h4>
+          <div class="tip">💡 要具体感谢对方的麻烦：Thank you for taking all the trouble of coming to meet me at the airport.</div>
+        </div>
+        <div class="qcard" onclick="this.classList.toggle('open');mark('q3')">
+          <span class="tag">QUESTION 3</span>
+          <h4>"接待" 除了接机，还包括哪些环节？</h4>
+          <div class="tip">💡 安排交通与住宿、请客用餐、介绍同事与上司、说明行程变动——这就是今天要走完的五站。</div>
+        </div>
+      </div>
+      <div style="margin-top:16px;font-size:15.5px;color:var(--muted)">👇 点一点这些词，听发音、看意思，先热热身</div>
+      <div class="cloud" id="cloud"></div>
+      <div style="margin-top:18px"><button class="btn btn-primary" onclick="go('#goals')">带着问题，看看今天的目标 →</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 目标 ============ -->
+<section id="goals" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <div><h2>学完这一课，你能做到</h2><p>三个维度：听得懂、说得出、说得好。</p></div>
+  </div>
+  <div class="goal-grid">
+    <div class="goal">
+      <div class="ic">📘</div><h3>语言知识</h3>
+      <ul>
+        <li>掌握接机、入住、点餐、引荐四大场景的核心词汇</li>
+        <li>认读 reception / reservation / manufacturer / distributor / sales agent 等职场高频词</li>
+        <li>记住 8 个可以直接套用的高频句型</li>
+      </ul>
+    </div>
+    <div class="goal b">
+      <div class="ic">🎤</div><h3>语言技能</h3>
+      <ul>
+        <li>听懂接待场景对话，抓住人名、航班、房号、时间</li>
+        <li>借助句型支架完成"寒暄—安排—引荐"的连贯输出</li>
+        <li>能就行程变动做礼貌说明，语速自然、对方听得懂</li>
+      </ul>
+    </div>
+    <div class="goal c">
+      <div class="ic">🌍</div><h3>跨文化素养</h3>
+      <ul>
+        <li>会用 Ms. / Mr. 等称谓，称呼得体不尴尬</li>
+        <li>懂得先寒暄（small talk）再谈正事的习惯</li>
+        <li>拒绝时用 I'm afraid… 而不是直白的 No</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 旅程地图 ============ -->
+<section id="map" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <div><h2>接待旅程 · 五站地图</h2><p>点任意一站直接跳过去；建议按顺序走完，难度逐站上升。</p></div>
+  </div>
+  <div class="map">
+    <svg viewBox="0 0 1100 220">
+      <path d="M70 150 C 250 60, 420 190, 600 110 S 900 60, 1030 120" fill="none" stroke="#D97706" stroke-width="3" stroke-dasharray="7 7" class="flow"/>
+      <g class="stop" onclick="go('#s1')">
+        <circle class="st" cx="70" cy="150" r="22" fill="#0F6F5C"/>
+        <text x="70" y="156" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">1</text>
+        <text x="70" y="192" text-anchor="middle" font-size="16" fill="#1F3A5F" font-weight="700">机场接机</text>
+        <text x="70" y="212" text-anchor="middle" font-size="12" fill="#6B7A8F">At the Airport</text>
+      </g>
+      <g class="stop" onclick="go('#s2')">
+        <circle class="st" cx="300" cy="98" r="22" fill="#0F6F5C"/>
+        <text x="300" y="104" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">2</text>
+        <text x="300" y="70" text-anchor="middle" font-size="16" fill="#1F3A5F" font-weight="700">酒店入住</text>
+        <text x="300" y="52" text-anchor="middle" font-size="12" fill="#6B7A8F">Check-in</text>
+      </g>
+      <g class="stop" onclick="go('#s3')">
+        <circle class="st" cx="545" cy="140" r="22" fill="#0F6F5C"/>
+        <text x="545" y="146" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">3</text>
+        <text x="545" y="182" text-anchor="middle" font-size="16" fill="#1F3A5F" font-weight="700">餐厅点餐</text>
+        <text x="545" y="202" text-anchor="middle" font-size="12" fill="#6B7A8F">At the Restaurant</text>
+      </g>
+      <g class="stop" onclick="go('#s4')">
+        <circle class="st" cx="790" cy="96" r="22" fill="#0F6F5C"/>
+        <text x="790" y="102" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">4</text>
+        <text x="790" y="68" text-anchor="middle" font-size="16" fill="#1F3A5F" font-weight="700">行程变动</text>
+        <text x="790" y="50" text-anchor="middle" font-size="12" fill="#6B7A8F">Change of Plan</text>
+      </g>
+      <g class="stop" onclick="go('#s5a')">
+        <circle class="st" cx="1030" cy="132" r="22" fill="#D97706"/>
+        <text x="1030" y="138" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">5</text>
+        <text x="1030" y="174" text-anchor="middle" font-size="16" fill="#1F3A5F" font-weight="700">引荐与介绍</text>
+        <text x="1030" y="194" text-anchor="middle" font-size="12" fill="#6B7A8F">Introducing Companies</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ 六站情景（JS 渲染） ============ -->
+<section id="s1" class="wrap reveal"></section>
+<section id="s2" class="wrap reveal"></section>
+<section id="s3" class="wrap reveal"></section>
+<section id="s4" class="wrap reveal"></section>
+<section id="s5a" class="wrap reveal"></section>
+<section id="s5b" class="wrap reveal"></section>
+
+<!-- ============ 句型 / 词汇 ============ -->
+<section id="patterns" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <div><h2>句型宝典 · 8 句直接套用</h2><p>点「🔊」听发音；下面的句子工厂可以换词造句。</p></div>
+  </div>
+  <div class="pat-grid" id="patGrid"></div>
+  <div class="builder">
+    <h3 style="font-size:20px">🧩 句子工厂：换词造句</h3>
+    <div style="font-size:15px;color:#C9D8D4;margin:6px 0 14px">选不同的句型、人名、公司、职位，立刻生成属于你自己的句子。</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px">
+      <select id="selPat"></select>
+      <select id="selName"><option>Marcus Rodgers</option><option>Robert Lee</option><option>Jennie Wang</option><option>Martin Stone</option></select>
+      <select id="selCo"><option>Nelson Office Outfitters</option><option>Thompson Nanjing</option><option>Thompson Dongwan</option><option>Sunrise Trading</option></select>
+      <select id="selRole"><option>General Manager</option><option>Chief Executive Officer</option><option>Sales Manager</option><option>Marketing Manager</option></select>
+    </div>
+    <div style="background:rgba(255,255,255,.12);border-radius:12px;padding:15px">
+      <div style="font-size:21px;font-family:Georgia,serif" id="outEn"></div>
+      <div style="font-size:15px;color:#D6E4E0;margin-top:4px" id="outZh"></div>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:9px;flex-wrap:wrap">
+      <button class="btn btn-primary" onclick="speak($('outEn').textContent)">🔊 说出来</button>
+      <button class="chip" onclick="copyOut()">📋 复制</button>
+    </div>
+  </div>
+</section>
+
+<section id="words" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <div><h2>核心词汇卡</h2><p>点卡片翻面看中文与例句，同时听到单词发音。</p></div>
+  </div>
+  <div class="word-grid" id="wordGrid"></div>
+</section>
+
+<!-- ============ 挑战 ============ -->
+<section id="challenge" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">06</div>
+    <div><h2>开口挑战 · 角色扮演</h2><p>抽一张情景卡 → 计时 → 说完给自己打星。</p></div>
+  </div>
+  <div class="grid2">
+    <div class="panel" style="text-align:center">
+      <div class="timer" id="timer">90″</div>
+      <svg width="118" height="118" viewBox="0 0 120 120" style="display:block;margin:8px auto">
+        <circle cx="60" cy="60" r="52" fill="none" stroke="#EDE8DC" stroke-width="10"/>
+        <circle id="ringArc" cx="60" cy="60" r="52" fill="none" stroke="#D97706" stroke-width="10" stroke-dasharray="326" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 60 60)"/>
+      </svg>
+      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+        <button class="chip" onclick="startTimer()">▶ 开始</button>
+        <button class="chip" onclick="pauseTimer()">⏸ 暂停</button>
+        <button class="chip" onclick="resetTimer()">↺ 重置</button>
+      </div>
+      <div class="scenario" id="scenario"></div>
+      <button class="chip" style="margin-top:10px" onclick="drawCard()">🎲 换一张卡</button>
+      <div class="stars" id="stars"></div>
+      <div style="font-size:14.5px;color:var(--muted)" id="starHint">给自己的表现打星（1–5，会保存在本机）</div>
+    </div>
+    <div>
+      <div class="lvl"><h4>A 层 · 保底版</h4>
+        <p>把括号里的词填进去，两人一组照稿表演，重点是开口、说完整。</p>
+        <span class="en" style="font-size:16px;color:var(--teal);display:block;margin-top:6px">Excuse me, are you (Marcus Rodgers) from (Nelson Office Outfitters)? — I'm glad to meet you. I'm (你的名字) from (你的公司).</span>
+      </div>
+      <div class="lvl b"><h4>B 层 · 进阶版</h4>
+        <p>只看中文提示：确认身份 → 致谢 → 说明今晚安排 → 明早出发。</p>
+        <span class="en" style="font-size:16px;color:var(--amber);display:block;margin-top:6px">Thank you for taking all the trouble of ___ / We'll spend tonight at ___.</span>
+      </div>
+      <div class="lvl c"><h4>C 层 · 挑战版</h4>
+        <p>完整接待：接机 → 入住 → 点餐 → 引荐，至少 4 个目标句型 + 1 次委婉表达。</p>
+        <span class="en" style="font-size:16px;color:var(--navy);display:block;margin-top:6px">I'd like to introduce you to ___ / I'm afraid not. However, we may consider ___.</span>
+      </div>
+      <div class="panel" style="box-shadow:none;border:1px dashed var(--teal);margin-top:12px">
+        <h4 style="color:var(--teal);font-size:17px">⭐ 三星互评标准</h4>
+        <p style="font-size:15.5px;color:var(--muted);margin-top:6px">
+          ⭐ 完成表演，用了 2 个以上目标句型<br>
+          ⭐⭐ 用了 4 个以上句型，错误少，有眼神交流<br>
+          ⭐⭐⭐ 句型准确灵活，语调接近音频，还能自然寒暄与礼貌推辞
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Exercise One: Role-Play 教材原题（填空 + 录音） ===== -->
+  <div class="panel" style="margin-top:22px" id="roleplay">
+    <div class="sec-head" style="margin-bottom:16px">
+      <div class="sec-num" style="font-size:38px">R</div>
+      <div><h2 style="font-size:26px">Exercise One · Role-Play 角色扮演</h2>
+      <p>教材原题：选一个情境 → 把对话补充完整 → 点「对答案」检查 → 录音完成整段对话表演。</p></div>
+    </div>
+    <div class="rp-tabs" id="rpTabs"></div>
+    <div class="rp-scene" id="rpScene"></div>
+    <div id="rpLines"></div>
+    <div class="rp-toolbar">
+      <button class="chip" onclick="rpCheck()">✅ 对答案</button>
+      <button class="chip" onclick="rpPlayAll()">▶ 听完整示范</button>
+      <button class="chip" onclick="rpClear()">↺ 清空重填</button>
+      <button class="rec-btn" id="rpRecBtn" onclick="toggleRpRec(this)">🎤 录音：完成整段对话</button>
+      <button class="rec-play" id="rpPlayBtn" onclick="playRecBtn(this)">▶ 回放</button>
+    </div>
+    <div class="rp-result" id="rpResult"></div>
+    <audio id="rpaud"></audio>
+  </div>
+</section>
+
+<!-- ============ 测验 ============ -->
+<section id="quiz" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">07</div>
+    <div><h2>闯关自测 · 5 题</h2><p>选一个答案，立刻看对错与讲解。</p></div>
+  </div>
+  <div class="quiz" id="quizBox"></div>
+  <div class="score-box" id="scoreBox" style="display:none">
+    <div class="n" id="scoreN">0</div>
+    <div id="scoreTxt"></div>
+    <button class="chip" style="margin-top:10px" onclick="renderQuiz()">↺ 再做一次</button>
+  </div>
+</section>
+
+<!-- ============ 作业 ============ -->
+<section id="homework" class="wrap reveal">
+  <div class="sec-head">
+    <div class="sec-num">08</div>
+    <div><h2>课后作业与配套音频</h2><p>作业分三层；音频可在线播放，也可下载后跟读。</p></div>
+  </div>
+  <div class="hw-grid">
+    <div class="hw"><span class="lv">必做 · 基础</span><h4>跟读 + 记 6 句</h4>
+      <p>跟读第一站与第二站各 2 遍并录音；抄写并记住 6 个功能句。</p></div>
+    <div class="hw b"><span class="lv">必做 · 提高</span><h4>录一段 60–90 秒对话</h4>
+      <p>两人一组录一段机场接机对话，可换人名、公司名与航班信息。</p></div>
+    <div class="hw c"><span class="lv">选做 · 拓展</span><h4>用英文推荐一道本地菜</h4>
+      <p>向外宾推荐一道南京菜，写 3–5 句英文，可用到 The salty duck is very well known.</p></div>
+  </div>
+  <div id="resList"></div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <div>Unit 1 Reception · 商务英语口语（高等教育出版社 · 方红 主编）</div>
+  <div>互动课堂 · 对话与词汇语音为美式男女声合成，语速适中偏慢</div>
+</div></footer>
+
+<div class="toast" id="toast"></div>
+<audio id="el"></audio>
+<audio id="recaud"></audio>
+
+<script>
+/* ==================== 数据 ==================== */
+const A = "audio/lines/";
+const ST = {
+  s1:{n:"机场接机", lines:[
+    {s:"Jennie", g:"女", en:"Excuse me, are you Marcus Rodgers from Nelson Office Outfitters in America?", zh:"你好，请问您是美国纳尔森办公用品公司的马库斯·罗杰斯吗?", a:A+"s1_01.mp3"},
+    {s:"Marcus", g:"男", en:"Yes, I am.", zh:"是的，我是。", a:A+"s1_02.mp3"},
+    {s:"Jennie", g:"女", en:"I'm glad to meet you. I'm Jennie Wang from Thompson Nanjing.", zh:"很高兴见到你，我是汤普森·南京的王杰妮。", a:A+"s1_03.mp3"},
+    {s:"Marcus", g:"男", en:"Nice to meet you, Ms. Wang. Thank you for taking all the trouble of coming to Shanghai to meet me at the airport.", zh:"很高兴见到你，王女士。谢谢您不辞辛苦到上海来接我。", a:A+"s1_04.mp3"},
+    {s:"Jennie", g:"女", en:"We assume that you haven't been to the Changjiang Delta region before. It will be convenient for both of us if we take you from Shanghai to Nanjing by car.", zh:"我们估计你从没有到过长江三角洲地区。我们开车将你从上海接回南京，这样做对双方都方便。", a:A+"s1_05.mp3"},
+    {s:"Marcus", g:"男", en:"Are we going to Nanjing now?", zh:"我们现在就去南京吗?", a:A+"s1_06.mp3"},
+    {s:"Jennie", g:"女", en:"I'm afraid not. You must be very tired after your long flight. We'll spend tonight at the Jinjiang Hotel and drive to Nanjing tomorrow morning.", zh:"不。坐了那么久的飞机，你一定很累了。我们在锦江饭店住一晚，然后明天早晨开车回南京。", a:A+"s1_07.mp3"},
+    {s:"Marcus", g:"男", en:"That's wonderful.", zh:"这太好了。", a:A+"s1_08.mp3"}
+  ]},
+  s2:{n:"酒店入住", lines:[
+    {s:"旁白", g:"", en:"Jennie 带 Marcus 来到锦江饭店，在前台办理入住。", zh:"（王杰妮把马库斯带到了锦江饭店，然后她来到服务台。）", a:A+"s2_01.mp3", narr:true},
+    {s:"Receptionist", g:"女", en:"Good evening, Madam. May I help you?", zh:"晚上好，女士，有什么需要帮忙的吗?", a:A+"s2_02.mp3"},
+    {s:"Jennie", g:"女", en:"Good evening. I'm from Thompson Nanjing. We've booked two single rooms for tonight. We'd like to check in, please.", zh:"晚上好。我是汤普森·南京公司的。我们定了今天晚上的两个单人间。现在想入住。", a:A+"s2_03.mp3"},
+    {s:"Receptionist", g:"女", en:"Yes. We have reservations for you. Would you please both fill in the form with your names and ID numbers?", zh:"好的，我们已经为你留了房间。请二位在这张表格上填上姓名和身份证号码。", a:A+"s2_04.mp3"},
+    {s:"Marcus", g:"男", en:"Excuse me, can I use my passport number?", zh:"麻烦问一下，我能填写护照号码吗?", a:A+"s2_05.mp3"},
+    {s:"Receptionist", g:"女", en:"Yes, sir.", zh:"可以，先生。", a:A+"s2_06.mp3"},
+    {s:"Receptionist", g:"女", en:"Here are the key cards. Your room numbers are twelve o six and twelve o eight.", zh:"这是你们的房卡，房间号是1206和1208。", a:A+"s2_07.mp3"},
+    {s:"Jennie", g:"女", en:"Thank you.", zh:"谢谢。", a:A+"s2_08.mp3"}
+  ]},
+  s3:{n:"餐厅点餐", lines:[
+    {s:"Maitre d'", g:"男", en:"May I help you?", zh:"您好，需要用餐吗?", a:A+"s3_01.mp3"},
+    {s:"Jennie", g:"女", en:"Yes, I'm from Thompson Nanjing. I made a reservation for a table for two.", zh:"是的。我是汤普森·南京公司的。我预定了一个双人桌。", a:A+"s3_02.mp3"},
+    {s:"Maitre d'", g:"男", en:"Let me check. Yes, we've reserved a table for you. Let me show you the way.", zh:"让我查一下。是的，我们为您留了桌子，请跟我来。", a:A+"s3_03.mp3"},
+    {s:"Jennie", g:"女", en:"Thank you.", zh:"谢谢。", a:A+"s3_04.mp3"},
+    {s:"Maitre d'", g:"男", en:"Here it is. Please be seated. Your waitress will be right with you.", zh:"就是这里，请坐，女服务员一会儿就到。", a:A+"s3_05.mp3"},
+    {s:"Marcus", g:"男", en:"I like this table by the window. It has a wonderful view.", zh:"我喜欢靠窗的桌子，能看见美丽的风景。", a:A+"s3_06.mp3"},
+    {s:"Jennie", g:"女", en:"I hope you like the food here, too.", zh:"希望你同样喜欢这里的菜肴。", a:A+"s3_07.mp3"},
+    {s:"Waitress", g:"女", en:"What would you like to order, sir?", zh:"先生，请问需要些什么?", a:A+"s3_08.mp3"},
+    {s:"Jennie", g:"女", en:"We won't have to wait long if we order the set lunch.", zh:"（对马库斯)如果我们点套餐，就不用等太长时间。", a:A+"s3_09.mp3"},
+    {s:"Marcus", g:"男", en:"That's good. We need to have a quick lunch. You mentioned that your CEO, Robert Lee, will meet with me at two p. m.", zh:"好的。我们得快点吃午饭。你说过你们的首席执行官罗伯特·李下午两点要和我面谈。", a:A+"s3_10.mp3"},
+    {s:"Jennie", g:"女", en:"That's right. What is the set lunch for today? I remember that you have different set lunches for each day of the week.", zh:"是的。（对服务生)今天有什么套餐?我记得你们一个星期里每天的套餐都不一样。", a:A+"s3_11.mp3"},
+    {s:"Waitress", g:"女", en:"We have two set lunches today. One is fried chicken with cauliflower and rice. The other is salty duck with green vegetables and rice.", zh:"我们今天提供两种套餐。一种是炸鸡，花椰菜和米饭，另一种是盐水鸭，蔬菜和米饭。", a:A+"s3_12.mp3"},
+    {s:"Jennie", g:"女", en:"What would you like, Marcus?", zh:"马库斯先生，你想要哪一种?", a:A+"s3_13.mp3"},
+    {s:"Marcus", g:"男", en:"What would you recommend?", zh:"你推荐一下吧。", a:A+"s3_14.mp3"},
+    {s:"Jennie", g:"女", en:"The salty duck in Nanjing is very well known.", zh:"南京的盐水鸭非常有名。", a:A+"s3_15.mp3"},
+    {s:"Marcus", g:"男", en:"Then I'll take the salty duck.", zh:"那我就要盐水鸭。", a:A+"s3_16.mp3"},
+    {s:"Jennie", g:"女", en:"Me, too.", zh:"我也是。", a:A+"s3_17.mp3"}
+  ]},
+  s4:{n:"行程变动", lines:[
+    {s:"旁白", g:"", en:"快吃完时，Jennie 接到销售部 Tina 的电话。", zh:"（他们快要吃完的时候，王女士接到了销售部提娜的电话。）", a:A+"s4_01.mp3", narr:true},
+    {s:"Jennie", g:"女", en:"Hello, this is Jennie Wang.", zh:"喂，我是王杰妮。", a:A+"s4_02.mp3"},
+    {s:"Tina", g:"女", en:"Jennie, this is Tina. Martin Stone from the marketing department wants to see you at one o'clock this afternoon. He said that he had some urgent issues to discuss with you.", zh:"杰妮，我是提娜。营销部的马丁·斯通想在下午一点见您，他说有要紧的事要和您商量。", a:A+"s4_03.mp3"},
+    {s:"Jennie", g:"女", en:"I'll be back to the office in ten minutes. Just let Martin know that I'll be attending Robert Lee's meeting with Marcus Rodgers around two o'clock.", zh:"我10分钟后回公司。告诉马丁我下午2点钟必须参加罗伯特·李和马库斯的会面。", a:A+"s4_04.mp3"},
+    {s:"Tina", g:"女", en:"I will.", zh:"好的。", a:A+"s4_05.mp3"},
+    {s:"Jennie", g:"女", en:"I'm sorry to say that Martin, the manager of our marketing department, needs me urgently. I'll drop you at the Jinling Hotel and meet you again at one fifty.", zh:"（对马库斯)非常抱歉，我们的营销部经理马丁急需见我。我现在把您送回金陵饭店，下午1点50分我们在金鹰大厦的办公室见面。", a:A+"s4_06.mp3"},
+    {s:"Marcus", g:"男", en:"No problem. That'll be fine.", zh:"没问题，下午见。", a:A+"s4_07.mp3"}
+  ]},
+  s5a:{n:"引荐他人", lines:[
+    {s:"Receptionist", g:"女", en:"Good afternoon. Can I help you, sir?", zh:"下午好，先生。请问找哪位?", a:A+"s5a_01.mp3"},
+    {s:"Marcus", g:"男", en:"Good afternoon. I'm Marcus Rodgers from Nelson Office Outfitters. I have an appointment with Robert Lee and Jennie Wang.", zh:"下午好。我是纳尔森办公用品公司的马库斯·罗杰斯。是罗伯特·李和王杰妮约我来的。", a:A+"s5a_02.mp3"},
+    {s:"Receptionist", g:"女", en:"Yes, Mr. Lee and Ms. Wang are expecting you. If you'd like to take a seat, I'll let them know you're here.", zh:"没错。李先生和王女士正在等您。您先请坐，我去告诉他们您来了。", a:A+"s5a_03.mp3"},
+    {s:"旁白", g:"", en:"Jennie 把 Marcus 引荐给公司 CEO Robert Lee。", zh:"（王杰妮把马库斯引荐给公司首席执行官罗伯特·李。）", a:A+"s5a_04.mp3", narr:true},
+    {s:"Jennie", g:"女", en:"Mr. Rodgers, I'd like to introduce you to Robert Lee, the Chief Executive Officer of Thompson Nanjing. Mr. Lee, this is Marcus Rodgers, the General Manager of Nelson Office Outfitters.", zh:"罗杰斯先生，这位是汤普森·南京公司的首席执行官罗伯特·李，李先生，这位是纳尔森办公用品公司的总经理马库斯·罗杰斯。", a:A+"s5a_05.mp3"},
+    {s:"Robert", g:"男", en:"Welcome to Nanjing, Mr. Rodgers.", zh:"罗杰斯先生，欢迎到南京来。", a:A+"s5a_06.mp3"},
+    {s:"Marcus", g:"男", en:"Nice to meet you, Mr. Lee.", zh:"很高兴见到您，李先生。", a:A+"s5a_07.mp3"},
+    {s:"Robert", g:"男", en:"We hear from Joseph Liu that you'd like to act as the sales agent in North America for Thompson Dongwan.", zh:"听约瑟夫·刘说您想成为汤普森·东皖在北美的代理商。", a:A+"s5a_08.mp3"}
+  ]},
+  s5b:{n:"公司介绍", lines:[
+    {s:"Marcus", g:"男", en:"That's right. We feel that Thompson Dongwan's office furniture has considerable potential in the North American market. Their pricing is relatively low compared with similar American products.", zh:"是的。我们认为汤普森·东皖的办公家具在北美很有市场潜力。与美国同类产品相比，他们的价格相对较低。", a:A+"s5b_01.mp3"},
+    {s:"Marcus", g:"男", en:"Is it possible for us to act as the direct agent for Thompson Dongwan in North America?", zh:"我想知道我们能不能成为汤普森·东皖的直接代理商?", a:A+"s5b_02.mp3"},
+    {s:"Jennie", g:"女", en:"I'm afraid not. However, we may consider you as the North American agent for Thompson Nanjing.", zh:"这恐怕不行。但是我们可以考虑请你做汤普森·南京在北美的代理商。", a:A+"s5b_03.mp3"},
+    {s:"Marcus", g:"男", en:"Sorry, I'm a bit confused. What is the relationship between Thompson Dongwan and Thompson Nanjing?", zh:"抱歉，我有一点儿不太明白。汤普森·东皖和汤普森·南京之间是什么关系?", a:A+"s5b_04.mp3"},
+    {s:"Jennie", g:"女", en:"Thompson Dongwan is only a furniture manufacturer. They do not have sales staff, and they do not have experience in international trade.", zh:"汤普森·东皖只是一个家具制造厂。他们的员工主要是负责生产的技术人员、工程师和工人。他们没有销售人员，也没有进行国际贸易的经验。", a:A+"s5b_05.mp3"},
+    {s:"Jennie", g:"女", en:"Thompson Nanjing is one of the main investors in Thompson Dongwan. We provide forty percent of the cash they need. In other words, they rely on us for financing and sales.", zh:"汤普森·南京是汤普森·东皖的主要投资方之一。我们向他们提供40%的资金。换句话说，汤普森·东皖在资金和销售方面依赖我们。", a:A+"s5b_06.mp3"},
+    {s:"Jennie", g:"女", en:"For the Chinese market, we act as the general distributor. For the Nanjing market, we act as the direct distributor. For foreign markets, we are also the general distributor.", zh:"汤普森·南京是它在中国市场的总经销商。我们为国内其他地方的分销商提供货源。但在南京市场，我们也是直接经销商。在海外市场我们是其总经销商。", a:A+"s5b_07.mp3"},
+    {s:"Marcus", g:"男", en:"Now I understand why Joseph Liu wanted me to come to Nanjing.", zh:"现在我知道为什么约瑟夫·刘希望我来南京了。我现在对汤普森·东皖和汤普森·南京的合作关系有了更多的认识。", a:A+"s5b_08.mp3"},
+    {s:"Robert", g:"男", en:"Could you tell us something about your company's background?", zh:"很高兴您已经弄清了我们之间的关系。能否请您介绍一下贵公司的情况?", a:A+"s5b_09.mp3"},
+    {s:"Marcus", g:"男", en:"Sure. We've been in business for about five years now. We act as the North American sales agent, representing some of the leading office furniture manufacturers in Europe and in Southeast Asia.", zh:"当然。我们公司已经运营了大约五年，我们在北美市场上代理欧洲和东南亚一些知名办公家具生产厂的产品。在北美我们已经建立了一套成熟的销售网络。", a:A+"s5b_10.mp3"},
+    {s:"Robert", g:"男", en:"It appears that our mutual interests and capabilities may benefit both of our companies.", zh:"我们两家公司似乎可以互惠互利。", a:A+"s5b_11.mp3"},
+    {s:"Marcus", g:"男", en:"That's great. Goodbye, Mr. Lee. Thank you for your time and your interest in Nelson Office Outfitters.", zh:"好的。李先生，再见。谢谢您花了宝贵的时间以及对纳尔森办公用品公司的关注。", a:A+"s5b_12.mp3"}
+  ]}
+};
+
+/* ---- 每站教学内容：重点词汇 + 重点句型 + Exercise Two 提问 ---- */
+const STATIONS = {
+  s1:{ num:1, name:"机场接机", en:"At the Airport", scene:"Jennie 从上海机场接上 Marcus：先礼貌确认身份，再自我介绍、致谢，最后说明今晚的安排。",
+    words:[
+      {w:"reception", ph:"/rɪˈsepʃn/", zh:"接待；接待处", a:"w_01.mp3", eg:"We will meet Mr. Rodgers at the airport reception."},
+      {w:"outfitter", ph:"/ˈaʊtfɪtə(r)/", zh:"用品供应商；经销商", a:"w_17.mp3", eg:"Nelson Office Outfitters is an office furniture distributor."},
+      {w:"distributor", ph:"/dɪˈstrɪbjətə(r)/", zh:"经销商；分销商", a:"w_10.mp3", eg:"Thompson Nanjing acts as the general distributor."},
+      {w:"recognize", ph:"/ˈrekəgnaɪz/", zh:"认出；辨认出", a:"w_18.mp3", eg:"Jennie recognizes Marcus at once at the airport."}
+    ],
+    pats:[
+      {en:"Excuse me, are you <b>Marcus Rodgers</b> from <b>Nelson Office Outfitters</b>?", zh:"打扰一下，请问您是 Nelson Office Outfitters 的 Marcus Rodgers 吗？", note:"不确定对方身份时，用 Excuse me, are you … from …? 礼貌地确认，比直接问 Are you …? 更得体。", a:"p_s1_01.mp3"},
+      {en:"I'm <b>glad to meet you</b>. I'm <b>Jennie Wang</b> from <b>Thompson Nanjing</b>.", zh:"很高兴见到您。我是南京 Thompson 的 Jennie Wang。", note:"自我介绍公式：I'm … from …（姓名 + 来自某公司/某地）。", a:"p_s1_02.mp3"},
+      {en:"Thank you for <b>taking all the trouble of</b> coming to meet me.", zh:"感谢您专程来接我。", note:"致谢要具体：Thank you for taking all the trouble of doing sth.（感谢您不辞辛劳做某事）。", a:"p_s1_03.mp3"}
+    ],
+    qs:[
+      {q:"Who is Marcus Rodgers? Where is he from?", zh:"Marcus Rodgers 是谁？他来自哪里？", a:"q_d1_01.mp3", ans:"He is a customer / sales agent from Nelson Office Outfitters, an office furniture distributor. He is from America (Los Angeles)."},
+      {q:"Why does Marcus come to China?", zh:"Marcus 为什么来中国？", a:"q_d1_02.mp3", ans:"Because he saw an advertisement on the Internet for furniture made by Thompson Dongwan, and he wants to act as their sales agent in North America."},
+      {q:"Who is Joseph Liu?", zh:"Joseph Liu 是谁？", a:"q_d1_03.mp3", ans:"He is the General Manager of Thompson Dongwan."},
+      {q:"What does he suggest to Marcus Rodgers?", zh:"他向 Marcus Rodgers 建议了什么？", a:"q_d1_04.mp3", ans:"He suggested (that) Marcus Rodgers go to Nanjing and talk with Jennie Wang."},
+      {q:"Who is Jennie Wang? Why does she go to Pudong International Airport?", zh:"Jennie Wang 是谁？她为什么去浦东国际机场？", a:"q_d1_05.mp3", ans:"She is the sales manager at Thompson Nanjing. She goes there to meet Mr. Rodgers."},
+      {q:"What does the receptionist ask Jennie and Marcus to do before she gives them the key cards?", zh:"前台给房卡前让 Jennie 和 Marcus 做什么？", a:"q_d1_06.mp3", ans:"She asks them to fill in the form with their names and ID numbers."},
+      {q:"Does Jennie recognize Marcus at the airport?", zh:"Jennie 在机场认出 Marcus 了吗？", a:"q_d1_07.mp3", ans:"Yes, she does. She greets him first: “Excuse me, are you Marcus Rodgers…?”"},
+      {q:"Where does Jennie take Marcus to after he arrives at the airport?", zh:"到机场后，Jennie 带 Marcus 去了哪里？", a:"q_d1_08.mp3", ans:"She takes him to the Jinjiang Hotel. They will spend tonight there and drive to Nanjing tomorrow morning."}
+    ]
+  },
+  s2:{ num:2, name:"酒店入住", en:"Checking In", scene:"到锦江饭店前台：说明已预订 → 填登记表 → 询问可否用护照号 → 接房卡致谢。",
+    words:[
+      {w:"receptionist", ph:"/rɪˈsepʃənɪst/", zh:"前台接待员", a:"w_02.mp3", eg:"The receptionist gives them the key cards."},
+      {w:"book", ph:"/bʊk/", zh:"预订（动词）", a:"w_22.mp3", eg:"We've booked two single rooms for tonight."},
+      {w:"check in", ph:"", zh:"办理入住；登记", a:"w_04.mp3", eg:"We'd like to check in, please."},
+      {w:"reservation", ph:"/ˌrezəˈveɪʃn/", zh:"预订；保留", a:"w_03.mp3", eg:"We have reservations for you."},
+      {w:"passport", ph:"/ˈpɑːspɔːt/", zh:"护照", a:"w_05.mp3", eg:"Can I use my passport number?"}
+    ],
+    pats:[
+      {en:"We've <b>booked</b> two single rooms for tonight. We'd like to <b>check in</b>, please.", zh:"我们订了今晚两间单人房，想办理入住。", note:"说明预订 + 提出需求：We've booked … / We'd like to check in, please.（please 让请求更礼貌）", a:"p_s2_01.mp3"},
+      {en:"Would you please <b>fill in the form</b> with your names and ID numbers?", zh:"请两位在表上填上姓名和身份证号好吗？", note:"Would you please + 动词原形：非常礼貌地请对方做某事。fill in the form 填表。", a:"p_s2_02.mp3"},
+      {en:"Excuse me, can I use my <b>passport number</b>?", zh:"请问，我可以填护照号码吗？", note:"有疑问、想确认时，先用 Excuse me 引起对方注意，再用 can I …? 询问是否可行。", a:"p_s2_03.mp3"}
+    ],
+    qs:[]
+  },
+  s3:{ num:3, name:"餐厅点餐", en:"At the Restaurant", scene:"时间紧，点套餐最快。问套餐、请推荐、点餐——一顿午饭也能练口语。",
+    words:[
+      {w:"set lunch", ph:"", zh:"套餐午餐", a:"w_06.mp3", eg:"We won't have to wait long if we order the set lunch."},
+      {w:"order", ph:"/ˈɔːdə(r)/", zh:"点餐；订购", a:"w_24.mp3", eg:"What would you like to order, sir?"},
+      {w:"recommend", ph:"/ˌrekəˈmend/", zh:"推荐；介绍", a:"w_07.mp3", eg:"What would you recommend?"}
+    ],
+    pats:[
+      {en:"I <b>made a reservation</b> for a table for two.", zh:"我订了一张两人桌。", note:"make a reservation for … 为……预订（桌子/房间）。", a:"p_s3_01.mp3"},
+      {en:"<b>What would you like to order</b>, sir?", zh:"先生，您想点什么？", note:"服务员的标准问法：What would you like to order?（您想点什么？）", a:"p_s3_02.mp3"},
+      {en:"<b>What would you recommend?</b>", zh:"您推荐什么？", note:"把选择权交给对方：What would you recommend?（您推荐什么？）回答可用 I'd recommend …", a:"p_s3_03.mp3"}
+    ],
+    qs:[
+      {q:"What does Jennie and Marcus order for lunch after they arrive in Nanjing?", zh:"到南京后，Jennie 和 Marcus 午饭点了什么？", a:"q_d2_02.mp3", ans:"They order the set lunch — the salty duck (with green vegetables and rice)."}
+    ]
+  },
+  s4:{ num:4, name:"行程变动", en:"Change of Plan", scene:"计划赶不上变化：说明原因 + 给出新安排，礼貌地把变动说清楚。",
+    words:[
+      {w:"appointment", ph:"/əˈpɔɪntmənt/", zh:"约见；预约", a:"w_08.mp3", eg:"I have an appointment with Robert Lee at two p.m."},
+      {w:"urgent", ph:"/ˈɜːdʒənt/", zh:"紧急的；急迫的", a:"w_15.mp3", eg:"Martin had some urgent issues to discuss."},
+      {w:"manager", ph:"/ˈmænɪdʒə(r)/", zh:"经理", a:"w_25.mp3", eg:"Martin is the manager of our marketing department."},
+      {w:"marketing", ph:"/ˈmɑːkɪtɪŋ/", zh:"营销；市场推广", a:"w_26.mp3", eg:"He works in the marketing department."}
+    ],
+    pats:[
+      {en:"I'm <b>sorry to say that</b> Martin … <b>needs me urgently</b>.", zh:"很抱歉，Martin 有急事需要我。", note:"说明变动先致歉：I'm sorry to say that …（很遗憾/抱歉，……）。", a:"p_s4_01.mp3"},
+      {en:"I'll <b>drop you at</b> the Jinling Hotel and <b>meet you again at</b> one fifty.", zh:"我送您到金陵饭店，一点五十再见面。", note:"drop sb. at + 地点：顺路把某人送到某处。给出新的时间和地点，对方就安心了。", a:"p_s4_02.mp3"},
+      {en:"No problem. <b>That'll be fine</b>.", zh:"没关系，可以的。", note:"接受对方安排的从容回答，也可以说 That works for me.", a:"p_s4_03.mp3"}
+    ],
+    qs:[
+      {q:"Which hotel does Marcus live in when he stays in Nanjing?", zh:"Marcus 在南京期间住在哪家酒店？", a:"q_d2_01.mp3", ans:"He lives in the Jinling Hotel."},
+      {q:"Who calls Jennie when she has lunch together with Marcus?", zh:"Jennie 和 Marcus 吃午饭时，谁打来电话？", a:"q_d2_03.mp3", ans:"Tina (from the sales department) calls her."},
+      {q:"Where will Jennie meet Marcus in the afternoon? What is the time of their appointment?", zh:"下午 Jennie 在哪里和 Marcus 见面？约见时间是几点？", a:"q_d2_04.mp3", ans:"At the lobby of the Jinling Hotel, at 1:50 p.m. (Their appointment with Robert Lee is at two p.m.)"}
+    ]
+  },
+  s5a:{ num:5, name:"引荐他人", en:"Introducing People", scene:"介绍的顺序：先把客人介绍给职位高的人，再反过来介绍。别忘了称呼 Mr. / Ms.。",
+    words:[
+      {w:"C E O", ph:"", zh:"首席执行官（缩写）", a:"w_20.mp3", eg:"Robert Lee is the CEO of Thompson Nanjing."},
+      {w:"general manager", ph:"", zh:"总经理", a:"w_19.mp3", eg:"Marcus Rodgers is the General Manager of Nelson Office Outfitters."},
+      {w:"introduce", ph:"/ˌɪntrəˈdjuːs/", zh:"介绍；引荐", a:"w_23.mp3", eg:"I'd like to introduce you to Robert Lee."}
+    ],
+    pats:[
+      {en:"I'd like to <b>introduce you to</b> Robert Lee, the <b>Chief Executive Officer</b> of Thompson Nanjing.", zh:"我想把您介绍给南京 Thompson 的 CEO Robert Lee。", note:"引荐公式：I'd like to introduce you to + 姓名, the + 职位 + of + 公司。", a:"p_s5a_01.mp3"},
+      {en:"Mr. Lee, <b>this is</b> Marcus Rodgers from Nelson Office Outfitters.", zh:"Lee 先生，这位是 Nelson Office Outfitters 的 Marcus Rodgers。", note:"反过来介绍时用 This is …（这位是……）。", a:"p_s5a_02.mp3"},
+      {en:"<b>Welcome to Nanjing</b>, Mr. Rodgers.", zh:"欢迎来到南京，Rodgers 先生。", note:"接待客人时表达欢迎：Welcome to + 城市/公司。后面加上 Mr. / Ms. + 姓氏更显尊重。", a:"p_s5a_03.mp3"}
+    ],
+    qs:[
+      {q:"Who is Robert Lee?", zh:"Robert Lee 是谁？", a:"q_d3_01.mp3", ans:"He is the Chief Executive Officer of Thompson Nanjing."}
+    ]
+  },
+  s5b:{ num:"5+", name:"公司介绍", en:"Introducing Companies", scene:"本课最难的一段：两家 Thompson 是什么关系？先看图理清关系，再听完整对话。",
+    words:[
+      {w:"manufacturer", ph:"/ˌmænjuˈfæktʃərə(r)/", zh:"制造商", a:"w_09.mp3", eg:"Thompson Dongwan is only a furniture manufacturer."},
+      {w:"sales agent", ph:"", zh:"销售代理", a:"w_11.mp3", eg:"They act as the North American sales agent."},
+      {w:"financing", ph:"/ˈfaɪnænsɪŋ/", zh:"融资；资金支持", a:"w_12.mp3", eg:"Thompson Dongwan relies on Thompson Nanjing for financing."},
+      {w:"investor", ph:"/ɪnˈvestə(r)/", zh:"投资方；投资者", a:"w_13.mp3", eg:"Thompson Nanjing is one of the main investors."},
+      {w:"mutual", ph:"/ˈmjuːtʃuəl/", zh:"共同的；相互的", a:"w_16.mp3", eg:"Our mutual interests may benefit both companies."},
+      {w:"potential", ph:"/pəˈtenʃl/", zh:"潜力；潜能", a:"w_14.mp3", eg:"Their furniture has great potential in North America."}
+    ],
+    pats:[
+      {en:"Thompson Dongwan is only a <b>furniture manufacturer</b>. They do not have <b>sales staff</b>.", zh:"东莞 Thompson 只是家具制造商，没有销售人员。", note:"说明公司性质：… is a + 行业 + manufacturer（……是某产品的制造商）。", a:"p_s5b_01.mp3"},
+      {en:"They <b>rely on us</b> for <b>financing and sales</b>.", zh:"他们在资金和销售上依靠我们。", note:"rely on sb. for sth.：在某事上依靠某人。", a:"p_s5b_02.mp3"},
+      {en:"Our <b>mutual interests</b> and capabilities may benefit both of our companies.", zh:"我们双方的共同利益和能力可以让两家公司互利共赢。", note:"mutual interests 共同利益；benefit both of … 对双方都有利。", a:"p_s5b_03.mp3"}
+    ],
+    qs:[
+      {q:"Can Marcus be the sales agent in North America for Thompson Dongwan? Why?", zh:"Marcus 能做东莞 Thompson 的北美销售代理吗？为什么？", a:"q_d3_02.mp3", ans:"No, he can't. Because Thompson Dongwan is only a manufacturer and Thompson Nanjing is the general sales agent. But he may be the North American agent for Thompson Nanjing."},
+      {q:"Who is the general sales agent for Thompson Dongwan?", zh:"谁是东莞 Thompson 的总销售代理？", a:"q_d3_03.mp3", ans:"Thompson Nanjing (is the general sales agent for Thompson Dongwan)."},
+      {q:"What does Thompson Dongwan manufacture?", zh:"东莞 Thompson 生产什么？", a:"q_d3_04.mp3", ans:"It manufactures office furniture."},
+      {q:"What kinds of staff does Thompson Dongwan have?", zh:"东莞 Thompson 有哪些员工？", a:"q_d3_05.mp3", ans:"Its staff are mainly technicians, engineers and workers. It has no sales staff."},
+      {q:"Why does Thompson Dongwan rely on Thompson Nanjing?", zh:"东莞 Thompson 为什么依赖南京 Thompson？", a:"q_d3_06.mp3", ans:"Because Thompson Nanjing provides 40% of the cash it needs — it relies on Thompson Nanjing for financing and sales."},
+      {q:"What kind of company is Nelson Office Outfitters?", zh:"Nelson Office Outfitters 是什么公司？", a:"q_d3_07.mp3", ans:"It is an office furniture distributor (from America)."},
+      {q:"Why does Marcus want to buy some sets of office furniture from Thompson Nanjing?", zh:"Marcus 为什么想从南京 Thompson 买几套办公家具？", a:"q_d3_08.mp3", ans:"Because he would like to buy some sets of office furniture to try out in their market."}
+    ]
+  }
+};
+
+const PATTERNS = [
+  {en:"Excuse me, are you <b>{name}</b> from <b>{co}</b>?", zh:"打扰一下，请问您是 {co} 的 {name} 吗？", tag:"确认身份"},
+  {en:"I'm glad to meet you. I'm <b>{name}</b> from <b>{co}</b>.", zh:"很高兴见到您。我是 {co} 的 {name}。", tag:"自我介绍"},
+  {en:"Thank you for <b>taking all the trouble of</b> coming to meet me.", zh:"感谢您专程来接我。", tag:"致谢"},
+  {en:"You must be <b>very tired after your long flight</b>.", zh:"长途飞行后您一定很累了。", tag:"寒暄关心"},
+  {en:"We've <b>booked</b> two single rooms. We'd like to <b>check in</b>, please.", zh:"我们订了两间单人房，想办理入住。", tag:"酒店入住"},
+  {en:"<b>What would you like to order?</b> / What would you recommend?", zh:"您想点什么？/ 您推荐什么？", tag:"餐厅点餐"},
+  {en:"I'd like to <b>introduce you to {name}</b>, the {role} of {co}.", zh:"我想把您介绍给 {co} 的 {role} {name}。", tag:"引荐他人"},
+  {en:"<b>I'm afraid not</b>. However, we may consider you as our agent.", zh:"恐怕不行。不过我们可以考虑让您做我们的代理。", tag:"委婉拒绝"}
+];
+const WORDS = [
+  {w:"reception", zh:"接待；前台", ex:"The reception desk is over there.", a:"w_01.mp3"},
+  {w:"receptionist", zh:"前台接待员", ex:"The receptionist gave us the key cards.", a:"w_02.mp3"},
+  {w:"reservation", zh:"预订", ex:"I made a reservation for two.", a:"w_03.mp3"},
+  {w:"check in", zh:"办理入住", ex:"We'd like to check in, please.", a:"w_04.mp3"},
+  {w:"passport", zh:"护照", ex:"Can I use my passport number?", a:"w_05.mp3"},
+  {w:"set lunch", zh:"套餐午餐", ex:"We'll order the set lunch.", a:"w_06.mp3"},
+  {w:"recommend", zh:"推荐", ex:"What would you recommend?", a:"w_07.mp3"},
+  {w:"appointment", zh:"预约；约见", ex:"I have an appointment with Mr. Lee.", a:"w_08.mp3"},
+  {w:"manufacturer", zh:"制造商", ex:"They are only a furniture manufacturer.", a:"w_09.mp3"},
+  {w:"distributor", zh:"经销商", ex:"We act as the general distributor.", a:"w_10.mp3"},
+  {w:"sales agent", zh:"销售代理", ex:"He wants to act as the sales agent.", a:"w_11.mp3"},
+  {w:"financing", zh:"融资", ex:"They rely on us for financing and sales.", a:"w_12.mp3"},
+  {w:"investor", zh:"投资方", ex:"We are one of the main investors.", a:"w_13.mp3"},
+  {w:"potential", zh:"潜力", ex:"Their furniture has great potential.", a:"w_14.mp3"},
+  {w:"urgent", zh:"紧急的", ex:"He had some urgent issues.", a:"w_15.mp3"},
+  {w:"mutual", zh:"共同的", ex:"our mutual interests and capabilities", a:"w_16.mp3"},
+  {w:"outfitter", zh:"供应商；经销商", ex:"Nelson Office Outfitters, an office furniture distributor.", a:"w_17.mp3"},
+  {w:"recognize", zh:"认出；认得", ex:"Jennie recognizes Marcus at the airport.", a:"w_18.mp3"},
+  {w:"general manager", zh:"总经理", ex:"the General Manager of Nelson Office Outfitters.", a:"w_19.mp3"},
+  {w:"CEO", zh:"首席执行官", ex:"Robert Lee, the CEO of Thompson Nanjing.", a:"w_20.mp3"},
+  {w:"book", zh:"预订", ex:"We've booked two single rooms.", a:"w_22.mp3"},
+  {w:"ID", zh:"身份证（件）", ex:"Please fill in your name and ID number.", a:"w_23.mp3"},
+  {w:"order", zh:"点餐；订购", ex:"What would you like to order?", a:"w_24.mp3"},
+  {w:"introduce", zh:"介绍；引荐", ex:"I'd like to introduce you to Robert Lee.", a:"w_25.mp3"},
+  {w:"manager", zh:"经理", ex:"the manager of our marketing department.", a:"w_26.mp3"},
+  {w:"marketing", zh:"营销", ex:"Martin is from the marketing department.", a:"w_27.mp3"},
+  {w:"delta", zh:"三角洲", ex:"the Changjiang Delta region.", a:"w_28.mp3"},
+  {w:"region", zh:"地区；区域", ex:"the Changjiang Delta region.", a:"w_29.mp3"}
+];
+const KEYWORDS = [
+  {w:"reception", zh:"接待"}, {w:"receptionist", zh:"前台"}, {w:"reservation", zh:"预订"},
+  {w:"check in", zh:"入住登记"}, {w:"introduce", zh:"介绍"}, {w:"distributor", zh:"经销商"},
+  {w:"sales agent", zh:"销售代理"}, {w:"appointment", zh:"约见"}, {w:"manufacturer", zh:"制造商"},
+  {w:"urgent", zh:"紧急的"}
+];
+
+/* ---- 角色头像（说话人图片） ---- */
+const AV = {
+  "Jennie":"assets/avatars/jennie.jpg", "Marcus":"assets/avatars/marcus.jpg",
+  "Robert":"assets/avatars/robert.jpg", "Tina":"assets/avatars/tina.jpg",
+  "Receptionist":"assets/avatars/receptionist.jpg", "Waitress":"assets/avatars/waitress.jpg",
+  "Maitre d'":"assets/avatars/maitre.jpg",
+  "Sarah":"assets/avatars/sarah.jpg", "Liu":"assets/avatars/liu.jpg",
+  "Ben":"assets/avatars/ben.jpg", "Information desk":"assets/avatars/desk.jpg"
+};
+
+/* ---- Exercise One: Role-Play 三个情境（填空 + 录音） ---- */
+const RP = {
+  r1:{ tab:"情境 1 · 前台问房间号",
+    scene:"Suppose you are Sarah and you are at the reception of a hotel, asking about Mr. Liu's room number.",
+    sceneZh:"你是 Sarah，在宾馆前台询问 Mr. Liu 的房间号。",
+    lines:[
+      {who:"Receptionist", en:"Good morning. May I help you?", zh:"早上好，需要帮忙吗？", a:"r1_01.mp3"},
+      {who:"Sarah", en:"Good morning. I am <b>_1_</b> Mr. Liu. He should have <b>_2_</b> yesterday.", zh:"早上好。我在找刘先生。他昨天应该已经入住了。", a:"r1_02.mp3",
+       blanks:[{ans:"looking for", hint:"look"}, {ans:"checked in", hint:"check"}],
+       ans:"Good morning. I am looking for Mr. Liu. He should have checked in yesterday."},
+      {who:"Receptionist", en:"One minute, please. Let me see. There are two Lius. Could you please tell me his full name?", zh:"请稍等，我查一下。有两位刘先生，能告诉我他的全名吗？", a:"r1_03.mp3"},
+      {who:"Sarah", en:"Er, yes. <b>_1_</b>.", zh:"呃，是的。刘平。", a:"r1_04.mp3",
+       blanks:[{ans:"Liu Pin", hint:"full name"}], ans:"Er, yes. Liu Pin."},
+      {who:"Receptionist", en:"Mr. Liu is in room 314.", zh:"刘先生住 314 房间。", a:"r1_05.mp3"},
+      {who:"Sarah", en:"Could you please <b>_1_</b> is here? He <b>_2_</b> me.", zh:"能告诉他 Sarah Geller 来了吗？他正在等我。", a:"r1_06.mp3",
+       blanks:[{ans:"tell him that Sarah Geller", hint:"tell, Sarah Geller"}, {ans:"is expecting", hint:"expect"}],
+       ans:"Could you please tell him that Sarah Geller is here? He is expecting me."},
+      {who:"Receptionist", en:"Sure, please have a seat in the waiting room.", zh:"当然可以，请在等候室稍坐。", a:"r1_07.mp3"}
+    ]
+  },
+  r2:{ tab:"情境 2 · 前台问航班",
+    scene:"Suppose you are Liu Pin and you are at a hotel reception desk, asking about flight information back to Shanghai.",
+    sceneZh:"你是 Liu Pin，在酒店前台询问回上海的航班信息。",
+    lines:[
+      {who:"Receptionist", en:"Good morning, Sir. May I help you?", zh:"早上好，先生，需要帮忙吗？", a:"r2_01.mp3"},
+      {who:"Liu", en:"Yes, I'd like to <b>_1_</b>.", zh:"是的，我想了解一下回上海的航班起飞时间。", a:"r2_02.mp3",
+       blanks:[{ans:"know the leaving time of the plane to Shanghai", hint:"leaving time, plane to Shanghai"}],
+       ans:"Yes, I'd like to know the leaving time of the plane to Shanghai."},
+      {who:"Receptionist", en:"May I have the flight number?", zh:"请问航班号是多少？", a:"r2_03.mp3"},
+      {who:"Liu", en:"I <b>_1_</b>.", zh:"我不知道。", a:"r2_04.mp3",
+       blanks:[{ans:"don't know", hint:"not know"}], ans:"I don't know."},
+      {who:"Receptionist", en:"Wait a moment please, I will check for you.", zh:"请稍等，我帮您查一下。", a:"r2_05.mp3"},
+      {who:"Liu", en:"Thank you.", zh:"谢谢。", a:"r2_06.mp3"},
+      {who:"Receptionist", en:"There are two flights leaving for Shanghai today. One is at 10:45 in the morning, the other at 6:30 in the evening.", zh:"今天有两班回上海的飞机。一班上午10:45，另一班晚上6:30。", a:"r2_07.mp3"},
+      {who:"Liu", en:"I think <b>_1_</b>. Thank you very much.", zh:"我想坐晚上那班。非常感谢。", a:"r2_08.mp3",
+       blanks:[{ans:"I'll take the evening one", hint:"evening one"}],
+       ans:"I think I'll take the evening one. Thank you very much."}
+    ]
+  },
+  r3:{ tab:"情境 3 · 火车站问车次",
+    scene:"Suppose you are Ben Anderson and you are at the Nanjing Train Station, asking about the train to Suzhou.",
+    sceneZh:"你是 Ben Anderson，在南京火车站询问去苏州的车次。",
+    lines:[
+      {who:"Information desk", en:"Hello, Sir. What can I do for you?", zh:"您好，先生，需要什么帮助？", a:"r3_01.mp3"},
+      {who:"Ben", en:"Hello. I'd like to have the schedule of the trains from Nanjing to Suzhou.", zh:"你好。我想了解一下南京到苏州的车次时刻。", a:"r3_02.mp3"},
+      {who:"Information desk", en:"The train leaves every hour.", zh:"火车每小时一班。", a:"r3_03.mp3"},
+      {who:"Ben", en:"Could you please <b>_1_</b>?", zh:"能给我一份时刻表吗？", a:"r3_04.mp3",
+       blanks:[{ans:"give me the timetable", hint:"timetable"}],
+       ans:"Could you please give me the timetable?"},
+      {who:"Information desk", en:"Yes, of course. Here you are.", zh:"当然可以，给您。", a:"r3_05.mp3"},
+      {who:"Ben", en:"Thank you.", zh:"谢谢。", a:"r3_06.mp3"}
+    ]
+  }
+};
+let rpCur = "r1";
+const KW_AUDIO = {"reception":"w_01.mp3","receptionist":"w_02.mp3","reservation":"w_03.mp3","check in":"w_04.mp3","introduce":"w_25.mp3","distributor":"w_10.mp3","sales agent":"w_11.mp3","appointment":"w_08.mp3","manufacturer":"w_09.mp3","urgent":"w_15.mp3"};
+const REL = {
+  dw:{t:"Thompson Dongwan", s:"furniture manufacturer",
+      pts:["只做生产：员工以技术人员、工程师和工人为主","没有销售团队，也没有国际贸易经验","资金上依赖南京公司：南京公司提供其所需资金的 40%"],
+      say:["Thompson Dongwan is only a furniture manufacturer.","They do not have sales staff.","They rely on us for financing and sales."]},
+  nj:{t:"Thompson Nanjing", s:"general distributor",
+      pts:["东莞 Thompson 的主要投资方之一","中国市场：总经销，向各地经销商供货","南京市场直接经销；海外市场同样是总经销"],
+      say:["For the Chinese market, we act as the general distributor.","For the Nanjing market, we act as the direct distributor.","For foreign markets, we are also the general distributor."]},
+  nl:{t:"Nelson Office Outfitters", s:"North American sales agent",
+      pts:["经营约五年，做北美销售代理","代理欧洲与东南亚多家领先办公家具制造商","在北美有完善的分销网络"],
+      say:["We've been in business for about five years now.","We act as the North American sales agent.","We have a comprehensive distribution network."]},
+  mk:{t:"North American market", s:"target market",
+      pts:["东莞 Thompson 家具在这里有相当潜力","价格比同类美国产品低","要成为代理，需与南京 Thompson 签约"],
+      say:["Their pricing is relatively low compared with similar American products.","We may consider you as the North American agent.","We need to sign a full contract."]}
+};
+const CARDS = [
+  {t:"情景 A · 机场接机", d:"你到机场接一位首次来华的客户：确认身份 → 自我介绍 → 致谢回应 → 说明今晚住哪、明天怎么走。", must:["Excuse me, are you…?","Thank you for taking all the trouble of…","We'll spend tonight at…"]},
+  {t:"情景 B · 酒店入住", d:"陪客户到前台：说明已预订 → 填表 → 询问可否用护照号 → 接房卡致谢。", must:["We've booked…","We'd like to check in, please.","Can I use my passport number?"]},
+  {t:"情景 C · 餐厅点餐", d:"时间紧，请客户吃午饭：说明预订 → 问今日套餐 → 给出推荐 → 点餐。", must:["What is the set lunch for today?","What would you recommend?","I'll take the salty duck."]},
+  {t:"情景 D · 引荐与婉拒", d:"把客户引荐给 CEO，并礼貌说明不能做直接代理、但可考虑另一种合作。", must:["I'd like to introduce you to…","This is…, the General Manager of…","I'm afraid not. However…"]}
+];
+const QUIZ = [
+  {q:"第一站里，Marcus 今晚住在哪家酒店？", o:["Jinjiang Hotel","Jinling Hotel","Jinying Building","Hilton Shanghai"], a:0, e:"We'll spend tonight at the Jinjiang Hotel and drive to Nanjing tomorrow morning."},
+  {q:"餐厅里 Marcus 最后点了什么？", o:["Fried chicken","Salty duck","Cauliflower","Green vegetables"], a:1, e:"The salty duck in Nanjing is very well known. — Then I'll take the salty duck."},
+  {q:"Robert Lee 在公司是什么职位？", o:["General Manager","Sales Manager","Chief Executive Officer","Receptionist"], a:2, e:"Robert Lee, the Chief Executive Officer of Thompson Nanjing。"},
+  {q:"想礼貌地拒绝对方，应该说哪一句？", o:["No, you can't.","I'm afraid not. However, we may consider…","I don't think so.","That's impossible."], a:1, e:"I'm afraid not. 最地道，后面接 However 给出替代方案。"},
+  {q:"Thompson Dongwan 是一家什么公司？", o:["Sales agent","Furniture manufacturer","General distributor","Hotel"], a:1, e:"Thompson Dongwan is only a furniture manufacturer — 只生产，不做销售。"}
+];
+</script>
+<script>
+/* ==================== 基础 ==================== */
+function $(i){return document.getElementById(i)}
+function go(s){document.querySelector(s).scrollIntoView({behavior:"smooth",block:"start"})}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1900)}
+const done = new Set(JSON.parse(localStorage.getItem("u1_done")||"[]"));
+function paintProgress(){
+  const p = Math.min(100, Math.round(done.size/38*100));
+  $("pbar").style.width = p+"%"; $("ptxt").textContent = p+"%";
+}
+function mark(k){
+  done.add(k); localStorage.setItem("u1_done", JSON.stringify([...done]));
+  paintProgress();
+}
+/* ---- 进度保存 / 归零 ---- */
+function saveProgress(){
+  localStorage.setItem("u1_done", JSON.stringify([...done]));
+  paintProgress();
+  toast("进度已保存到本机 💾（共完成 " + done.size + " 项）");
+}
+let resetArmed = false;
+function resetProgress(){
+  const btn = $("btnReset");
+  if(!resetArmed){
+    resetArmed = true;
+    btn.classList.add("armed");
+    btn.textContent = "⚠️ 确认归零？";
+    setTimeout(()=>{ if(resetArmed){ resetArmed=false; btn.classList.remove("armed"); btn.textContent="↺ 归零" } }, 3000);
+    toast("再点一次「确认归零」，学习进度将清零");
+    return;
+  }
+  done.clear();
+  localStorage.removeItem("u1_done");
+  resetArmed = false;
+  btn.classList.remove("armed");
+  btn.textContent = "↺ 归零";
+  paintProgress();
+  toast("进度已归零，重新开始吧 🌱");
+}
+function speak(t){
+  if(!("speechSynthesis" in window)) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.9;
+  const vs=window.speechSynthesis.getVoices();
+  const v=vs.find(x=>/en-US/i.test(x.lang))||vs.find(x=>/en/i.test(x.lang));
+  if(v) u.voice=v;
+  window.speechSynthesis.speak(u);
+}
+function playAudio(file, fallbackText){
+  stopAll();
+  el.src = A + file; el.playbackRate = rate;
+  el.onerror = ()=>{ if(fallbackText) speak(fallbackText); };
+  el.play().catch(()=>{ if(fallbackText) speak(fallbackText); });
+}
+
+/* ==================== 播放器（分句自然语音） ==================== */
+let el = $("el"), rate = 1, curSid = null, seqIdx = 0, playing = false;
+el.playbackRate = 1;
+function bubbleEls(sid){ return [...document.querySelectorAll("#chat"+sid.slice(1)+" .bub")] }
+function hi(sid,i){ bubbleEls(sid).forEach((b,k)=>b.classList.toggle("playing", k===i)) }
+function sayLine(sid,n){
+  stopAll();
+  const L = ST[sid].lines[n-1]; if(!L) return;
+  hi(sid,n-1);
+  el.src = L.a; el.playbackRate = rate;
+  el.onended = ()=> hi(sid,-1);
+  el.onerror = ()=>{ hi(sid,-1); speak(L.en) };
+  el.play().catch(()=>speak(L.en));
+  mark("say"+sid+n);
+}
+function playStation(sid){
+  stopAll(); curSid = sid; playing = true;
+  const pb = $("pb"+sid.slice(1)); if(pb) pb.textContent = "⏸";
+  seqIdx = 0; next();
+}
+function next(){
+  if(!playing || !curSid) return;
+  const L = ST[curSid].lines[seqIdx];
+  if(!L){ stopAll(); toast("本段播放完毕 👏"); return; }
+  hi(curSid, seqIdx);
+  el.src = L.a; el.playbackRate = rate;
+  el.onended = ()=>{ seqIdx++; setTimeout(next, 420) };
+  el.onerror = ()=>{ seqIdx++; setTimeout(next, 900) };
+  el.play().catch(()=>{ seqIdx++; setTimeout(next, 900) });
+  mark("play"+curSid);
+}
+function stopAll(){
+  playing = false; curSid = null; el.pause();
+  Object.keys(ST).forEach(k=>{
+    const b = $("pb"+k.slice(1)); if(b) b.textContent = "▶";
+    bubbleEls(k).forEach(x=>x.classList.remove("playing"));
+  });
+  if("speechSynthesis" in window) window.speechSynthesis.cancel();
+}
+function stopStation(sid){ stopAll() }
+function toggleZh(sid){ bubbleEls(sid).forEach(b=>{ if(!b.classList.contains("N")) b.classList.toggle("show-zh") }) }
+function stepTo(id){
+  const t = $(id);
+  if(t) t.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+/* ==================== 录音（MediaRecorder + IndexedDB） ==================== */
+let mediaRec = null, recChunks = [], recStream = null;
+const recAud = $("recaud");
+function openRecDB(){
+  return new Promise((res, rej)=>{
+    const rq = indexedDB.open("u1_recs", 1);
+    rq.onupgradeneeded = ()=>{ if(!rq.result.objectStoreNames.contains("aud")) rq.result.createObjectStore("aud") };
+    rq.onsuccess = ()=> res(rq.result);
+    rq.onerror = ()=> rej(rq.error);
+  });
+}
+async function recSave(key, blob){
+  try{
+    const db = await openRecDB();
+    await new Promise((res)=>{
+      const tx = db.transaction("aud","readwrite");
+      tx.objectStore("aud").put(blob, key);
+      tx.oncomplete = ()=> res();
+      tx.onerror = ()=> res();
+    });
+  }catch(e){}
+}
+async function recLoad(key){
+  try{
+    const db = await openRecDB();
+    return await new Promise((res)=>{
+      const tx = db.transaction("aud","readonly");
+      const g = tx.objectStore("aud").get(key);
+      g.onsuccess = ()=> res(g.result || null);
+      g.onerror = ()=> res(null);
+    });
+  }catch(e){ return null }
+}
+async function toggleRec(key, btn){
+  if(mediaRec && mediaRec.state === "recording"){ mediaRec.stop(); return }
+  if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia){
+    toast("当前浏览器不支持录音，请用 Chrome / Edge"); return;
+  }
+  try{
+    const st = await navigator.mediaDevices.getUserMedia({audio:true});
+    recStream = st;
+    const m = new MediaRecorder(st);
+    recChunks = [];
+    m.ondataavailable = e => { if(e.data && e.data.size) recChunks.push(e.data) };
+    m.onstop = async ()=>{
+      const blob = new Blob(recChunks, {type:"audio/webm"});
+      const url = URL.createObjectURL(blob);
+      await recSave(key, blob);
+      if(recStream) recStream.getTracks().forEach(t=>t.stop());
+      btn.classList.remove("rec-on");
+      btn.innerHTML = "🎤 重录";
+      const row = btn.closest(".qrow") || btn.closest("#roleplay");
+      const pb = row ? row.querySelector(".rec-play") : null;
+      if(pb){ pb.dataset.url = url; }
+      if(row) row.classList.add("rec-done");
+      toast("录音已保存 ✓ 点「回放」听听自己的发音");
+    };
+    m.start();
+    mediaRec = m;
+    btn.classList.add("rec-on");
+    btn.innerHTML = "⏹ 停止";
+    toast("开始录音，请用英语大声回答");
+  }catch(e){
+    toast("无法使用麦克风，请在浏览器地址栏左侧允许录音权限");
+  }
+}
+function playRecBtn(btn){
+  const u = btn.dataset.url;
+  if(u){ recAud.src = u; recAud.play().catch(()=>toast("回放失败")); }
+  else toast("还没有录音，先点「🎤 录音回答」");
+}
+async function restoreRecs(){
+  const rows = document.querySelectorAll("[data-rk]");
+  for(const row of rows){
+    const k = row.dataset.rk;
+    const b = await recLoad(k);
+    if(b){
+      const url = URL.createObjectURL(b);
+      const pb = row.querySelector(".rec-play");
+      const rb = row.querySelector(".rec-btn");
+      if(pb) pb.dataset.url = url;
+      if(rb) rb.innerHTML = "🎤 重录";
+      row.classList.add("rec-done");
+    }
+  }
+}
+
+/* ==================== Exercise One: Role-Play（填空 + 录音） ==================== */
+function rpRender(){
+  const tabs = $("rpTabs");
+  tabs.innerHTML = "";
+  Object.keys(RP).forEach(k=>{
+    const b = document.createElement("button");
+    b.className = "rp-tab" + (k===rpCur?" on":"");
+    b.textContent = RP[k].tab;
+    b.onclick = ()=>{ rpCur = k; rpRender(); };
+    tabs.appendChild(b);
+  });
+  const R = RP[rpCur];
+  $("rpScene").innerHTML = `<b>${R.tab}</b><p>${R.scene}</p><p style="color:var(--teal);margin-top:2px">${R.sceneZh}</p>`;
+  const box = $("rpLines");
+  box.innerHTML = "";
+  R.lines.forEach((L,i)=>{
+    const row = document.createElement("div");
+    row.className = "rpline";
+    let en = L.en;
+    if(L.blanks){
+      L.blanks.forEach((bl,bi)=>{
+        en = en.replace("<b>_"+(bi+1)+"_</b>",
+          `<input class="bl" data-i="${bi}" data-ans="${bl.ans}" placeholder="${bl.hint}" size="${Math.max(9, bl.ans.length)}">`);
+      });
+    }
+    row.innerHTML = `<img class="av" src="${AV[L.who]||""}" alt="${L.who}" loading="lazy" onerror="this.style.visibility='hidden'">
+      <div class="body">
+        <div class="who">${L.who}</div>
+        <div class="en">${en}</div>
+        <div class="zh">${L.zh}</div>
+        <div class="acts">
+          <button onclick="playAudio('${L.a}', null)">🔊 听这句</button>
+          ${L.ans?`<button onclick="rpFill(${i})">💡 看这句答案</button>`:""}
+        </div>
+      </div>`;
+    box.appendChild(row);
+  });
+  $("roleplay").dataset.rk = "rp_"+rpCur;
+  $("rpPlayBtn").dataset.url = "";
+  $("rpRecBtn").innerHTML = "🎤 录音：完成整段对话";
+  $("rpResult").classList.remove("show");
+  $("rpResult").innerHTML = "";
+  restoreRecs();
+}
+function rpFill(i){
+  const L = RP[rpCur].lines[i];
+  if(!L || !L.ans) return;
+  $("rpResult").innerHTML = `第 ${i+1} 句参考答案：<span style="font-family:Georgia,serif">${L.ans}</span>`;
+  $("rpResult").classList.add("show");
+}
+function rpCheck(){
+  const inputs = [...$("rpLines").querySelectorAll("input.bl")];
+  let total = inputs.length, ok = 0;
+  inputs.forEach(inp=>{
+    const v = (inp.value||"").trim().toLowerCase().replace(/[.,!?;]/g,"");
+    const a = (inp.dataset.ans||"").toLowerCase().replace(/[.,!?;]/g,"");
+    inp.classList.remove("ok","bad");
+    if(!v) return;
+    if(v === a || (v.length >= 3 && a.includes(v))){ inp.classList.add("ok"); ok++; }
+    else inp.classList.add("bad");
+  });
+  const R = RP[rpCur];
+  const fullText = R.lines.map(l=>l.ans || l.en.replace(/<[^>]+>/g,"")).join("<br>");
+  $("rpResult").innerHTML = (total
+    ? `填空结果：<b style="color:var(--ok)">${ok} / ${total}</b> 正确。<br><b>完整对话：</b><br>${fullText}`
+    : "这个情境没有填空，直接点「🎤 录音：完成整段对话」开始表演。");
+  $("rpResult").classList.add("show");
+  if(total && ok === total){
+    toast("全部正确 🎉 点「录音」完成整段对话吧");
+    mark("rp_"+rpCur);
+  }
+}
+function rpClear(){
+  $("rpLines").querySelectorAll("input.bl").forEach(i=>{ i.value=""; i.classList.remove("ok","bad") });
+  $("rpResult").classList.remove("show");
+  toast("已清空，重新填写");
+}
+function rpPlayAll(){
+  const R = RP[rpCur];
+  let i = 0;
+  stopAll();
+  const step = ()=>{
+    if(i >= R.lines.length){ toast("示范播放完毕，该你了 🎤"); return }
+    el.src = A + R.lines[i].a;
+    el.playbackRate = rate;
+    el.onended = ()=>{ i++; setTimeout(step, 480) };
+    el.onerror = ()=>{ i++; setTimeout(step, 300) };
+    el.play().catch(()=>{ i++; setTimeout(step, 300) });
+  };
+  step();
+  toast("正在播放完整示范对话 ▶");
+}
+function toggleRpRec(btn){ toggleRec("rp_"+rpCur, btn) }
+
+/* ==================== 渲染：六站（三步结构） ==================== */
+function renderStations(){
+  ["s1","s2","s3","s4","s5a","s5b"].forEach(sid=>{
+    const st = STATIONS[sid];
+    const sec = $(sid);
+    if(!sec) return;
+    const sfx = sid.slice(1);
+
+    /* --- 头部 --- */
+    let h = `<div class="st-head">
+      <div class="st-badge"${sid==="s5b"?' style="background:var(--amber)"':''}>${st.num}</div>
+      <div><h3>${st.name} · ${st.en}</h3><div class="sc">${st.scene}</div></div>
+    </div>
+    <div class="stepbar">
+      <button class="stp on" data-tgt="${sid}-learn"><i>1</i>学词句</button>
+      <button class="stp" data-tgt="${sid}-listen"><i>2</i>听对话</button>
+      <button class="stp" data-tgt="${sid}-answer"><i>3</i>答问题</button>
+    </div>`;
+
+    /* --- STEP 1 重点词汇 + 句型 --- */
+    h += `<div class="panel stepblk" id="${sid}-learn">
+      <div class="step-tag">STEP 1 · 先学重点词句</div>
+      <div class="learn-grid">
+        <div class="learn-col">
+          <h4>📘 重点词汇</h4>`;
+    st.words.forEach((v,i)=>{
+      h += `<div class="vrow">
+        <button class="vplay" title="听发音" onclick="playAudio('${v.a}','${v.w.replace(/'/g,"")}')">🔊</button>
+        <div class="vword">${v.w}</div>
+        <div><span class="vph">${v.ph}</span> <span class="vzh">${v.zh}</span></div>
+        <div class="vex">${v.eg}</div>
+      </div>`;
+    });
+    h += `</div>
+        <div class="learn-col">
+          <h4>💬 重点句型</h4>`;
+    st.pats.forEach((p,i)=>{
+      h += `<div class="prow">
+        <div class="pen">${p.en}</div>
+        <div class="pzh">${p.zh}</div>
+        <div class="pnote">💡 ${p.note}</div>
+        <div class="prow-btns">
+          <button class="mini" onclick="playAudio('${p.a}', null)">🔊 听一遍</button>
+          <button class="mini" onclick="playAudio('${p.a}', null);mark('pat${sid}${i}')">🔁 再听</button>
+        </div>
+      </div>`;
+    });
+    h += `</div>
+      </div>
+      <button class="next-step" onclick="stepTo('${sid}-listen')">学完了，去听对话 →</button>
+    </div>`;
+
+    /* --- STEP 2 对话 --- */
+    h += `<div class="panel stepblk" id="${sid}-listen">
+      <div class="step-tag">STEP 2 · 听对话</div>
+      <div class="ctrl">
+        <button class="pb" id="pb${sfx}">▶</button>
+        <div class="lb">整段播放 · 分角色美音</div>
+        <button class="mb" id="rt${sfx}">1.0×</button>
+        <button class="mb" onclick="toggleZh('${sid}')">👀 中文</button>
+        <button class="mb" onclick="stopStation('${sid}')">⏹</button>
+      </div>
+      <div class="chat" id="chat${sfx}"></div>
+      <div style="margin-top:12px;font-size:14.5px;color:var(--muted)">💡 点任意一句即可单独收听；右键该句可单独显示中文。</div>
+    </div>`;
+
+    /* --- STEP 3 Exercise Two --- */
+    h += `<div class="panel stepblk" id="${sid}-answer">
+      <div class="step-tag">STEP 3 · Exercise Two 理解提问</div>`;
+    if(st.qs.length){
+      h += `<div style="font-size:15.5px;color:var(--muted);margin-bottom:16px">先听问题，点「🎤 录音回答」说出你的答案，再点「👀 参考答案」对一对。录音会保存在本机。</div>`;
+      st.qs.forEach((q,i)=>{
+        h += `<div class="qrow" data-rk="${q.a}">
+          <div class="qnum">${i+1}</div>
+          <div class="qbody">
+            <div class="qtext">${q.q}</div>
+            <div class="qzh">${q.zh}</div>
+            <div class="qacts">
+              <button onclick="playAudio('${q.a}', null);mark('q${q.a}')">🔊 听问题</button>
+              <button class="rec-btn" onclick="toggleRec('${q.a}', this)">🎤 录音回答</button>
+              <button class="rec-play" onclick="playRecBtn(this)">▶ 回放</button>
+              <button onclick="toggleAns(this)">👀 参考答案</button>
+            </div>
+            <div class="qans">${q.ans}</div>
+          </div>
+        </div>`;
+      });
+    }else{
+      h += `<div style="font-size:15.5px;color:var(--muted)">本段对应的 Exercise Two 问题已并入相邻站点（按对话内容归置）。完成下面的小互动，然后继续下一站。</div>`;
+    }
+    h += `</div>`;
+
+    /* --- 本站附加互动 --- */
+    h += extraTask(sid);
+
+    sec.innerHTML = h;
+  });
+}
+function toggleAns(btn){
+  const box = btn.closest(".qbody").querySelector(".qans");
+  if(box){ box.classList.toggle("show"); btn.textContent = box.classList.contains("show") ? "🙈 收起答案" : "👀 参考答案" }
+}
+
+/* 各站附加互动 */
+function extraTask(sid){
+  if(sid === "s1"){
+    return `<div class="panel stepblk">
+      <div class="step-tag">小互动 · 听完选意思</div>
+      <p style="font-size:15.5px;color:var(--muted)">点「播放」，选出你听到的那句话的意思。</p>
+      <div style="margin-top:10px"><button class="mini" onclick="sayLine('s1',7)">▶ 播放第 7 句</button></div>
+      <div id="q1box" style="margin-top:12px;display:grid;gap:8px">
+        <button class="opt" onclick="ans(1,this,0)">我们今晚住锦江饭店，明早开车去南京</button>
+        <button class="opt" onclick="ans(1,this,1)">我们现在就出发去南京</button>
+        <button class="opt" onclick="ans(1,this,2)">我们改坐火车去南京</button>
+      </div>
+      <div class="fb" id="fb1">✅ 正确：I'm afraid not. You must be very tired... We'll spend tonight at the Jinjiang Hotel.</div>
+    </div>`;
+  }
+  if(sid === "s2"){
+    return `<div class="panel stepblk">
+      <div class="step-tag">小互动 · 填一张入住登记表</div>
+      <p style="font-size:15.5px;color:var(--muted)">填上你的名字和证件号，生成你的英文入住对话。</p>
+      <div class="form-row">
+        <input id="inName" placeholder="你的英文名，如 Li Ming" />
+        <input id="inId" placeholder="证件号，如 E12345678" />
+        <button class="chip" style="align-self:flex-start" onclick="makeCheckin()">生成我的入住对话</button>
+      </div>
+      <div class="out-sent" id="checkOut">填写后点上面按钮，这里会出现你的句子。</div>
+      <button class="mini" style="margin-top:10px" onclick="speak($('checkOut').textContent)">🔊 读一遍</button>
+    </div>`;
+  }
+  if(sid === "s3"){
+    return `<div class="panel stepblk">
+      <div class="step-tag">小互动 · 今天吃什么？</div>
+      <p style="font-size:15.5px;color:var(--muted)">点一道菜，生成你的点餐句子并朗读。</p>
+      <div class="dish" onclick="pickDish(this,'the salty duck','盐水鸭，南京很有名')">
+        <div class="em">🦆</div>
+        <div><div class="nm">Salty duck</div><div class="eg">with green vegetables and rice</div></div>
+      </div>
+      <div class="dish" onclick="pickDish(this,'the fried chicken','炸鸡配菜花和米饭')">
+        <div class="em">🍗</div>
+        <div><div class="nm">Fried chicken</div><div class="eg">with cauliflower and rice</div></div>
+      </div>
+      <div class="out-sent" id="dishOut">Then I'll take ___. / I'll take ___.</div>
+      <button class="mini" style="margin-top:10px" onclick="speak($('dishOut').textContent.replace('___',''))">🔊 读一遍</button>
+    </div>`;
+  }
+  if(sid === "s4"){
+    return `<div class="panel stepblk">
+      <div class="step-tag">小互动 · 这样说更得体</div>
+      <div class="cmp">
+        <div class="bad">
+          <div class="lb" style="color:#9C3A2C">❌ 太直白，容易让对方尴尬</div>
+          <span class="en">I must go now. Wait here.</span>
+          <span style="font-size:14.5px;color:#9C3A2C">我得走了，你在这儿等着。</span>
+        </div>
+        <div class="good">
+          <div class="lb" style="color:#1E6B47">✅ 说明原因 + 给出安排，更得体</div>
+          <span class="en">I'm sorry to say that Martin needs me urgently. I'll drop you at the hotel and meet you again at 1:50.</span>
+          <span style="font-size:14.5px;color:#1E6B47">很抱歉，Martin 急着找我。我送您回酒店，1:50 再见。</span>
+          <button class="mini" style="margin-top:10px" onclick="sayLine('s4',6)">🔊 听地道说法</button>
+        </div>
+      </div>
+    </div>`;
+  }
+  if(sid === "s5a"){
+    return `<div class="panel stepblk">
+      <div class="step-tag">小互动 · 拼一句引荐词</div>
+      <p style="font-size:15.5px;color:var(--muted)">选好人物，生成完整的引荐句，再点朗读。</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+        <select id="iName" style="padding:10px 11px;border-radius:10px;border:1px solid var(--line);font-family:inherit;font-size:15px">
+          <option>Robert Lee</option><option>Jennie Wang</option><option>Marcus Rodgers</option>
+        </select>
+        <select id="iRole" style="padding:10px 11px;border-radius:10px;border:1px solid var(--line);font-family:inherit;font-size:15px">
+          <option>Chief Executive Officer</option><option>General Manager</option><option>Sales Manager</option>
+        </select>
+        <select id="iCo" style="padding:10px 11px;border-radius:10px;border:1px solid var(--line);font-family:inherit;font-size:15px">
+          <option>Thompson Nanjing</option><option>Nelson Office Outfitters</option><option>Thompson Dongwan</option>
+        </select>
+        <button class="chip" onclick="makeIntro()">生成</button>
+      </div>
+      <div class="out-sent" id="introOut">I'd like to introduce you to Robert Lee, the Chief Executive Officer of Thompson Nanjing.</div>
+      <button class="mini" style="margin-top:10px" onclick="speak($('introOut').textContent)">🔊 读一遍</button>
+    </div>`;
+  }
+  if(sid === "s5b"){
+    return `<div class="stepblk" style="margin-top:20px">
+      <div class="panel" style="margin-bottom:16px">
+        <div class="step-tag">小互动 · 两家 Thompson 什么关系？</div>
+        <p style="font-size:15.5px;color:var(--muted)">点方块查看要点，先把关系理清楚，再回上面听完整对话。</p>
+        <div class="rel-svg" style="box-shadow:none;margin-top:12px">
+          <svg viewBox="0 0 560 400">
+            <defs><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#0F6F5C"/></marker></defs>
+            <line class="flow" x1="140" y1="118" x2="140" y2="238" stroke="#D97706" stroke-width="3" marker-end="url(#ar)"/>
+            <line class="flow" x1="420" y1="238" x2="420" y2="118" stroke="#0F6F5C" stroke-width="3" marker-end="url(#ar)"/>
+            <line class="flow" x1="205" y1="272" x2="355" y2="272" stroke="#1F3A5F" stroke-width="3" marker-end="url(#ar)"/>
+            <text x="150" y="196" font-size="13" fill="#8A5A16" font-family="Georgia">出资 40%</text>
+            <text x="242" y="265" font-size="13" fill="#1F3A5F" font-family="Georgia">financing &amp; sales</text>
+            <text x="430" y="196" font-size="13" fill="#0F6F5C" font-family="Georgia">sales agent</text>
+            <g class="node" onclick="showRel('dw')">
+              <rect x="40" y="48" width="200" height="70" rx="14" fill="#FDF3E3" stroke="#D97706" stroke-width="2"/>
+              <text x="140" y="78" text-anchor="middle" font-size="17" font-weight="700" fill="#1F3A5F" font-family="Georgia">Thompson Dongwan</text>
+              <text x="140" y="100" text-anchor="middle" font-size="13" fill="#8A5A16">家具制造商 · manufacturer</text>
+            </g>
+            <g class="node" onclick="showRel('nj')">
+              <rect x="320" y="48" width="200" height="70" rx="14" fill="#E6F2EE" stroke="#0F6F5C" stroke-width="2"/>
+              <text x="420" y="78" text-anchor="middle" font-size="17" font-weight="700" fill="#1F3A5F" font-family="Georgia">Thompson Nanjing</text>
+              <text x="420" y="100" text-anchor="middle" font-size="13" fill="#0F6F5C">总经销 · general distributor</text>
+            </g>
+            <g class="node" onclick="showRel('nl')">
+              <rect x="40" y="238" width="200" height="70" rx="14" fill="#fff" stroke="#1F3A5F" stroke-width="2"/>
+              <text x="140" y="268" text-anchor="middle" font-size="17" font-weight="700" fill="#1F3A5F" font-family="Georgia">Nelson (USA)</text>
+              <text x="140" y="290" text-anchor="middle" font-size="13" fill="#6B7A8F">北美销售代理 · sales agent</text>
+            </g>
+            <g class="node" onclick="showRel('mk')">
+              <rect x="320" y="238" width="200" height="70" rx="14" fill="#fff" stroke="#1F3A5F" stroke-width="2"/>
+              <text x="420" y="268" text-anchor="middle" font-size="17" font-weight="700" fill="#1F3A5F" font-family="Georgia">North America</text>
+              <text x="420" y="290" text-anchor="middle" font-size="13" fill="#6B7A8F">海外市场 · 由南京公司总经销</text>
+            </g>
+            <text x="280" y="356" text-anchor="middle" font-size="13.5" fill="#6B7A8F">点击方块查看要点 · 箭头表示资金与销售流向</text>
+          </svg>
+        </div>
+      </div>
+      <div class="rel-info" id="relInfo"></div>
+      <div class="say3" id="relSay" style="display:none"></div>
+    </div>`;
+  }
+  return "";
+}
+
+/* ==================== 对话气泡渲染 ==================== */
+function renderChats(){
+  Object.keys(ST).forEach(sid=>{
+    const box = $("chat"+sid.slice(1)); if(!box) return;
+    ST[sid].lines.forEach((L,i)=>{
+      const b = document.createElement("div");
+      b.className = "bub " + (L.narr ? "N" : (L.g === "女" ? "L" : "R"));
+      const av = L.narr ? "" : `<img class="av" src="${AV[L.s]||""}" alt="${L.s}" loading="lazy" onerror="this.style.visibility='hidden'">`;
+      b.innerHTML = av + `<div class="body"><div class="who">${L.s}${L.g?` <span class="g">${L.g}声</span>`:""}</div>
+        <div class="ln en">${L.en}</div><div class="zh">${L.zh}</div></div>
+        <span class="say">🔊 点我朗读</span>`;
+      b.onclick = ()=>{ stopAll(); curSid = null; hi(sid,i);
+        el.src = L.a; el.playbackRate = rate;
+        el.onended = ()=> hi(sid,-1);
+        el.onerror = ()=>{ hi(sid,-1); speak(L.en) };
+        el.play().catch(()=>speak(L.en));
+        mark("tap"+sid+i) };
+      b.oncontextmenu = e=>{ e.preventDefault(); b.classList.toggle("show-zh") };
+      box.appendChild(b);
+    });
+  });
+  ["s1","s2","s3","s4","s5a","s5b"].forEach(sid=>{
+    const pb = $("pb"+sid.slice(1));
+    if(pb) pb.onclick = ()=>{ if(playing && curSid===sid){ stopAll() } else { playStation(sid) } };
+    const rt = $("rt"+sid.slice(1));
+    if(rt) rt.onclick = ()=>{
+      rate = rate===1?0.85:(rate===0.85?1.1:1);
+      rt.textContent = (rate===0.85?"0.85×":(rate===1.1?"1.1×":"1.0×"));
+      el.playbackRate = rate;
+      toast("语速 "+rt.textContent);
+    };
+  });
+}
+
+/* ==================== 关键词云 ==================== */
+function renderCloud(){
+  const box = $("cloud"); if(!box) return;
+  KEYWORDS.forEach(k=>{
+    const b = document.createElement("div");
+    b.className = "kw"; b.innerHTML = `${k.w}<small>${k.zh}</small>`;
+    b.onclick = ()=>{
+      b.classList.add("hit");
+      const f = KW_AUDIO[k.w];
+      if(f) playAudio(f, k.w); else speak(k.w);
+      mark("kw"+k.w);
+      setTimeout(()=>b.classList.remove("hit"), 600);
+    };
+    box.appendChild(b);
+  });
+}
+
+/* ==================== 句型宝典 ==================== */
+function renderPatterns(){
+  const g = $("patGrid"); if(!g) return;
+  PATTERNS.forEach((p,i)=>{
+    const c = document.createElement("div");
+    c.className = "pat";
+    c.innerHTML = `<span class="badge">${p.tag}</span>
+      <div class="en-s en">${p.en.replace(/\{(\w+)\}/g,'<span style="color:#D97706">____</span>')}</div>
+      <div class="zh-s">${p.zh.replace(/\{(\w+)\}/g,'____')}</div>
+      <div style="display:flex;gap:8px;margin-top:11px">
+        <button class="mini" onclick="playPat(${i})">🔊 听例句</button>
+      </div>`;
+    g.appendChild(c);
+  });
+  const sel = $("selPat");
+  PATTERNS.forEach((p,i)=>{
+    const o = document.createElement("option");
+    o.value = i; o.textContent = p.tag;
+    sel.appendChild(o);
+  });
+  sel.onchange = buildOut;
+  ["selName","selCo","selRole"].forEach(id=>{ $(id).onchange = buildOut });
+  buildOut();
+}
+const PAT_AUDIO = ["p_s1_01.mp3","p_s1_02.mp3","p_s1_03.mp3","p_s1_03.mp3","p_s2_01.mp3","p_s3_02.mp3","p_s5a_01.mp3","p_s5b_03.mp3"];
+function playPat(i){
+  const p = PATTERNS[i];
+  const txt = p.en.replace(/\{name\}/g,"Robert Lee").replace(/\{co\}/g,"Thompson Nanjing").replace(/\{role\}/g,"Chief Executive Officer").replace(/<[^>]+>/g,"");
+  playAudio(PAT_AUDIO[i] || "p_s1_01.mp3", txt);
+}
+function buildOut(){
+  const i = +$("selPat").value;
+  const p = PATTERNS[i];
+  const name = $("selName").value, co = $("selCo").value, role = $("selRole").value;
+  $("outEn").textContent = p.en.replace(/\{name\}/g,name).replace(/\{co\}/g,co).replace(/\{role\}/g,role).replace(/<[^>]+>/g,"");
+  $("outZh").textContent = p.zh.replace(/\{name\}/g,name).replace(/\{co\}/g,co).replace(/\{role\}/g,role);
+}
+function copyOut(){
+  const t = $("outEn").textContent;
+  if(navigator.clipboard) navigator.clipboard.writeText(t).then(()=>toast("已复制 📋"), ()=>toast("复制失败"));
+  else toast("请手动选择复制");
+}
+
+/* ==================== 词汇卡 ==================== */
+function renderWords(){
+  const g = $("wordGrid"); if(!g) return;
+  WORDS.forEach((w,i)=>{
+    const c = document.createElement("div");
+    c.className = "flip";
+    c.innerHTML = `<div class="flip-in">
+      <div class="face front"><div class="w en">${w.w}</div><div class="hint">🔊 点击翻面</div></div>
+      <div class="face back"><div class="zz">${w.zh}</div><div class="ex">${w.ex}</div></div>
+    </div>`;
+    c.onclick = ()=>{
+      c.classList.toggle("on");
+      const file = w.a;
+      if(file) playAudio(file, w.w); else speak(w.w);
+      mark("word"+i);
+    };
+    g.appendChild(c);
+  });
+}
+
+/* ==================== 关系图 ==================== */
+function showRel(k){
+  const r = REL[k]; if(!r) return;
+  $("relInfo").innerHTML = `<h3 style="font-size:20px">${r.t}</h3>
+    <div class="en" style="color:var(--teal);font-size:16.5px;margin:3px 0 10px">${r.s}</div>
+    <ul style="padding-left:19px;font-size:15.5px;color:var(--muted);line-height:1.8">${r.pts.map(p=>`<li>${p}</li>`).join("")}</ul>`;
+  const say = $("relSay");
+  if(say){
+    say.style.display = "block";
+    say.innerHTML = `<b style="color:#8A5A16">只要会说这三句：</b>` +
+      r.say.map(s=>`<span class="en" style="display:block;margin-top:6px;cursor:pointer" onclick="speak('${s.replace(/'/g,"\\'")}')">· ${s}</span>`).join("") +
+      `<button class="mini" style="margin-top:10px" onclick="speakRel(${JSON.stringify(r.say).replace(/"/g,'&quot;')})">🔊 连读三句</button>`;
+  }
+  if($("relInfo").animate) $("relInfo").animate([{opacity:.3,transform:"translateY(10px)"},{opacity:1,transform:"none"}],{duration:350});
+  mark("rel"+k);
+}
+function speakRel(arr){
+  let i = 0;
+  const step = ()=>{
+    if(i >= arr.length) return;
+    speak(arr[i]); i++;
+    setTimeout(step, 1500);
+  };
+  step();
+}
+
+/* ==================== 挑战 ==================== */
+function drawCard(){
+  const c = CARDS[Math.floor(Math.random()*CARDS.length)];
+  $("scenario").innerHTML = `<b style="font-size:17px;color:var(--navy)">${c.t}</b>
+    <p style="font-size:15.5px;color:var(--muted);margin-top:6px">${c.d}</p>
+    <div style="margin-top:9px;font-size:15px;color:var(--teal)">目标句型：${c.must.join(" / ")}</div>`;
+}
+let tLeft = 90, tH = null;
+function paintTimer(){
+  $("timer").textContent = tLeft + "″";
+  $("ringArc").style.strokeDashoffset = 326 * (1 - tLeft/90);
+}
+function startTimer(){
+  if(tH) return;
+  $("timer").classList.add("run");
+  tH = setInterval(()=>{
+    tLeft--;
+    paintTimer();
+    if(tLeft <= 0){ clearInterval(tH); tH = null; $("timer").classList.remove("run"); toast("时间到！说得怎么样？") }
+  }, 1000);
+}
+function pauseTimer(){ if(tH){ clearInterval(tH); tH = null; $("timer").classList.remove("run") } }
+function resetTimer(){ pauseTimer(); tLeft = 90; paintTimer() }
+function renderStars(){
+  const saved = +(localStorage.getItem("u1_star")||0);
+  const box = $("stars"); if(!box) return;
+  box.innerHTML = "";
+  for(let i = 1; i <= 5; i++){
+    const b = document.createElement("button");
+    b.className = "star" + (i <= saved ? " on" : "");
+    b.textContent = "★";
+    b.onclick = ()=>{
+      localStorage.setItem("u1_star", i);
+      renderStars();
+      toast("给自己打了 " + i + " 星");
+    };
+    box.appendChild(b);
+  }
+}
+
+/* ==================== 自测 ==================== */
+let score = 0;
+function renderQuiz(){
+  score = 0;
+  $("scoreBox").style.display = "none";
+  const box = $("quizBox"); if(!box) return;
+  box.innerHTML = "";
+  QUIZ.forEach((q,qi)=>{
+    const d = document.createElement("div");
+    d.style.cssText = "padding:16px 0;border-bottom:1px dashed var(--line)";
+    let h = `<div style="font-size:17.5px;font-weight:600;color:var(--navy);margin-bottom:10px">${qi+1}. ${q.q}</div><div style="display:grid;gap:8px">`;
+    q.o.forEach((o,oi)=>{
+      h += `<button class="opt" data-q="${qi}" data-o="${oi}">${o}</button>`;
+    });
+    h += `</div><div class="fb" id="fbq${qi}">💡 ${q.e}</div>`;
+    d.innerHTML = h;
+    box.appendChild(d);
+  });
+  box.querySelectorAll(".opt").forEach(b=>{
+    b.onclick = ()=>{
+      const qi = +b.dataset.q, oi = +b.dataset.o;
+      const q = QUIZ[qi];
+      if(q._done) return;
+      q._done = true;
+      const all = box.querySelectorAll(`.opt[data-q="${qi}"]`);
+      all.forEach(x=>{
+        const v = +x.dataset.o;
+        if(v === q.a) x.classList.add("right");
+        else if(v === oi) x.classList.add("wrong");
+      });
+      $("fbq"+qi).classList.add("show");
+      if(oi === q.a){ score++; mark("quiz"+qi) }
+      const total = QUIZ.filter(x=>x._done).length;
+      if(total === QUIZ.length) showScore();
+    };
+  });
+}
+function showScore(){
+  $("scoreN").textContent = score + " / " + QUIZ.length;
+  $("scoreTxt").textContent = score >= 5 ? "满分！你已经掌握本单元核心内容 🎉" : score >= 3 ? "不错，把错题句子再读两遍就更好" : "别灰心，回到句型宝典再听两遍";
+  $("scoreBox").style.display = "block";
+  if($("scoreBox").animate) $("scoreBox").animate([{opacity:0,transform:"scale(.9)"},{opacity:1,transform:"none"}],{duration:450});
+}
+function ans(n, btn, idx){
+  const ok = idx === 0;
+  const box = $("q1box");
+  box.querySelectorAll(".opt").forEach(b=>{ b.style.pointerEvents = "none" });
+  btn.classList.add(ok ? "right" : "wrong");
+  if(!ok) box.querySelectorAll(".opt")[0].classList.add("right");
+  $("fb1").classList.add("show");
+  if(ok) mark("ans1");
+}
+function playQuizLine(sid,n){ sayLine(sid,n) }
+
+/* ==================== 各站小互动 ==================== */
+function makeCheckin(){
+  const n = ($("inName").value || "Li Ming").trim();
+  const id = ($("inId").value || "E12345678").trim();
+  $("checkOut").textContent = `Good evening. I've booked a single room for tonight. My name is ${n}, and my ID number is ${id}. We'd like to check in, please.`;
+}
+function pickDish(el, dish, zh){
+  document.querySelectorAll(".dish").forEach(d=>d.classList.remove("on"));
+  el.classList.add("on");
+  $("dishOut").textContent = `Then I'll take ${dish}.（${zh}）`;
+}
+function makeIntro(){
+  const n = $("iName").value, r = $("iRole").value, c = $("iCo").value;
+  $("introOut").textContent = `I'd like to introduce you to ${n}, the ${r} of ${c}.`;
+}
+
+/* ==================== 资源 ==================== */
+function renderRes(){
+  const box = $("resList"); if(!box) return;
+  [["Dialogue 1 · 机场接机 + 酒店入住","audio/Dialogue1_Meeting_and_Check-in.mp3"],
+   ["Dialogue 2 · 餐厅用餐 + 行程变动","audio/Dialogue2_Lunch_and_Change_of_Plan.mp3"],
+   ["Dialogue 3 · 前台引荐 + 公司介绍","audio/Dialogue3_Introducing_Companies.mp3"]].forEach(r=>{
+    const d = document.createElement("div");
+    d.className = "res";
+    d.innerHTML = `<div class="ico">🎧</div>
+      <div style="flex:1"><b style="font-size:16.5px">${r[0]}</b><span style="display:block;font-size:14.5px;color:var(--muted)">完整对话音频 · 美式男女声、语速适中（可下载跟读）</span></div>
+      <button class="chip" onclick="playFull('${r[1]}')">▶ 播放</button>
+      <a class="chip" href="${r[1]}" download>⬇ 下载</a>`;
+    box.appendChild(d);
+  });
+}
+function playFull(src){
+  stopAll();
+  el.src = src; el.playbackRate = rate;
+  el.play().catch(()=>toast("播放失败，请检查文件"));
+  toast("正在播放完整对话");
+}
+
+/* ==================== 步骤高亮 & 滚动 ==================== */
+function initSteps(){
+  document.querySelectorAll(".stepbar .stp").forEach(btn=>{
+    btn.onclick = ()=> stepTo(btn.dataset.tgt);
+  });
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        const sid = e.target.id.replace(/-(learn|listen|answer)$/,"");
+        const key = e.target.id.split("-").pop();
+        document.querySelectorAll(`section[id="${sid}"] .stp`).forEach(b=>{
+          b.classList.toggle("on", b.dataset.tgt === e.target.id);
+        });
+      }
+    });
+  }, {rootMargin:"-30% 0px -55% 0px", threshold:0});
+  document.querySelectorAll(".stepblk").forEach(x=>io.observe(x));
+}
+function initScroll(){
+  const io = new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("in")
+  }), {threshold:.08});
+  document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+  /* 兜底：1.8 秒后无论滚动位置如何，都让全部内容可见，避免个别环境下动画类未触发 */
+  setTimeout(()=>{ document.querySelectorAll(".reveal").forEach(x=>x.classList.add("in")) }, 1800);
+  const secs = [...document.querySelectorAll("section")];
+  const links = [...document.querySelectorAll("nav.menu a")];
+  window.addEventListener("scroll", ()=>{
+    const h = document.documentElement;
+    $("scrollBar").style.width = (h.scrollTop/(h.scrollHeight-h.clientHeight)*100) + "%";
+    let now = secs[0];
+    secs.forEach(s=>{ if(s.getBoundingClientRect().top <= 150) now = s });
+    links.forEach(a=>a.classList.toggle("active", a.getAttribute("href") === "#"+now.id));
+  }, {passive:true});
+}
+
+/* ==================== 启动 ==================== */
+renderStations();
+renderChats();
+renderCloud();
+renderPatterns();
+renderWords();
+showRel("dw");
+drawCard();
+rpRender();
+renderStars();
+renderQuiz();
+renderRes();
+initSteps();
+initScroll();
+restoreRecs();
+paintProgress();
+$("btnSave").onclick = saveProgress;
+$("btnReset").onclick = resetProgress;
+if("speechSynthesis" in window) window.speechSynthesis.getVoices();
+</script>
+</body>
+</html>
